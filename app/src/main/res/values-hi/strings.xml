@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">FreightConnect</string>
+    <string name="app_tagline">व्यापार और ट्रक मालिकों को जोड़ें</string>
+
+    <!-- Auth -->
+    <string name="login">लॉगिन</string>
+    <string name="register">रजिस्टर करें</string>
+    <string name="email">ईमेल पता</string>
+    <string name="password">पासवर्ड</string>
+    <string name="full_name">पूरा नाम</string>
+    <string name="phone_number">फ़ोन नंबर</string>
+    <string name="company_name">कंपनी का नाम (वैकल्पिक)</string>
+    <string name="select_language">भाषा चुनें</string>
+    <string name="forgot_password">पासवर्ड भूल गए?</string>
+    <string name="i_am_a">मैं हूँ:</string>
+    <string name="business_owner">व्यापार मालिक</string>
+    <string name="fleet_owner">ट्रक मालिक</string>
+    <string name="role_business_desc">मुझे माल परिवहन की आवश्यकता है</string>
+    <string name="role_fleet_desc">मेरे पास परिवहन के लिए ट्रक उपलब्ध हैं</string>
+    <string name="error_empty_fields">कृपया सभी आवश्यक फ़ील्ड भरें</string>
+    <string name="enter_email_for_reset">कृपया पहले अपना ईमेल पता दर्ज करें</string>
+    <string name="password_reset_sent">पासवर्ड रीसेट ईमेल भेजा गया!</string>
+
+    <!-- Navigation -->
+    <string name="home">होम</string>
+    <string name="search">खोजें</string>
+    <string name="my_routes">मेरे रूट</string>
+    <string name="my_cargo">मेरा माल</string>
+    <string name="notifications">सूचनाएं</string>
+    <string name="profile">प्रोफ़ाइल</string>
+    <string name="interests">रुचियां</string>
+
+    <!-- Routes -->
+    <string name="post_route">रूट पोस्ट करें</string>
+    <string name="from_city">से शहर</string>
+    <string name="to_city">तक शहर</string>
+    <string name="vehicle_type">वाहन प्रकार</string>
+    <string name="vehicle_number">वाहन नंबर</string>
+    <string name="available_capacity">उपलब्ध क्षमता (टन)</string>
+    <string name="price_per_ton">प्रति टन मूल्य (₹)</string>
+    <string name="departure_date">प्रस्थान तिथि</string>
+    <string name="route_notes">अतिरिक्त नोट्स</string>
+    <string name="post_route_success">रूट सफलतापूर्वक पोस्ट किया गया!</string>
+    <string name="accept_partial_load">आंशिक लोड स्वीकार करें</string>
+
+    <!-- Cargo -->
+    <string name="post_cargo">माल अनुरोध पोस्ट करें</string>
+    <string name="goods_type">माल का प्रकार</string>
+    <string name="goods_description">विवरण</string>
+    <string name="weight_tons">वजन (टन)</string>
+    <string name="pickup_city">पिकअप शहर</string>
+    <string name="delivery_city">डिलीवरी शहर</string>
+    <string name="pickup_address">पिकअप पता</string>
+    <string name="delivery_address">डिलीवरी पता</string>
+    <string name="pickup_date">पिकअप तिथि</string>
+    <string name="budget">बजट राशि (₹)</string>
+    <string name="special_requirements">विशेष आवश्यकताएं</string>
+    <string name="post_cargo_success">माल अनुरोध पोस्ट किया गया!</string>
+
+    <!-- Common -->
+    <string name="required_field">यह फ़ील्ड आवश्यक है</string>
+    <string name="submit">जमा करें</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="accept">स्वीकार करें</string>
+    <string name="reject">अस्वीकार करें</string>
+    <string name="call">कॉल करें</string>
+    <string name="send_interest">रुचि भेजें</string>
+    <string name="view_details">विवरण देखें</string>
+    <string name="active">सक्रिय</string>
+    <string name="booked">बुक किया गया</string>
+    <string name="completed">पूर्ण</string>
+    <string name="in_transit">ट्रांजिट में</string>
+    <string name="cancelled">रद्द</string>
+    <string name="open">खुला</string>
+    <string name="pending">लंबित</string>
+
+    <!-- Details -->
+    <string name="route_details">रूट विवरण</string>
+    <string name="cargo_details">माल विवरण</string>
+    <string name="from">से</string>
+    <string name="to">तक</string>
+    <string name="distance">दूरी: %1$.0f किमी</string>
+    <string name="capacity">क्षमता</string>
+    <string name="tons">टन</string>
+    <string name="departure">प्रस्थान</string>
+    <string name="arrival">अनुमानित आगमन</string>
+    <string name="contact_owner">मालिक से संपर्क करें</string>
+    <string name="contact_fleet">ट्रक मालिक से संपर्क करें</string>
+    
+    <!-- Interest -->
+    <string name="send_interest_title">रुचि भेजें</string>
+    <string name="your_message">आपका संदेश</string>
+    <string name="offered_price">प्रस्तावित मूल्य (₹)</string>
+    <string name="interest_sent">रुचि सफलतापूर्वक भेजी गई!</string>
+    <string name="interest_accepted">रुचि स्वीकार की गई! संपर्क विवरण साझा किए गए।</string>
+    <string name="interest_rejected">रुचि अस्वीकार की गई</string>
+    
+    <!-- Profile -->
+    <string name="logout">लॉग आउट</string>
+    <string name="edit_profile">प्रोफ़ाइल संपादित करें</string>
+    <string name="change_language">भाषा बदलें</string>
+    <string name="total_trips">कुल यात्राएं</string>
+    <string name="rating">रेटिंग</string>
+    <string name="verified">सत्यापित</string>
+    <string name="not_verified">सत्यापित नहीं</string>
+    
+    <!-- Errors -->
+    <string name="error_loading">डेटा लोड करने में त्रुटि</string>
+    <string name="no_data_found">कोई डेटा नहीं मिला</string>
+    <string name="network_error">नेटवर्क त्रुटि। कृपया अपना कनेक्शन जांचें।</string>
+
+    <!-- Additional strings -->
+    <string name="no_routes_posted">अभी तक कोई रूट पोस्ट नहीं किया गया</string>
+    <string name="no_cargo_posted">अभी तक कोई माल पोस्ट नहीं किया गया</string>
+    <string name="no_routes_found">कोई रूट नहीं मिला</string>
+    <string name="no_cargo_found">कोई माल नहीं मिला</string>
+
+    <!-- Plurals -->
+    <plurals name="routes_found">
+        <item quantity="one">%d रूट मिला</item>
+        <item quantity="other">%d रूट मिले</item>
+    </plurals>
+
+    <plurals name="cargos_found">
+        <item quantity="one">%d माल मिला</item>
+        <item quantity="other">%d माल मिले</item>
+    </plurals>
+</resources>

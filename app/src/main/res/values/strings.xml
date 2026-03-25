@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">FreightConnect</string>
+    <string name="app_tagline">Connect Business &amp; Fleet Owners</string>
+
+    <!-- Auth -->
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="email">Email Address</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="company_name">Company Name (Optional)</string>
+    <string name="select_language">Select Language</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="i_am_a">I am a:</string>
+    <string name="business_owner">Business Owner</string>
+    <string name="fleet_owner">Fleet Owner</string>
+    <string name="role_business_desc">I need to transport goods</string>
+    <string name="role_fleet_desc">I have trucks available for transport</string>
+    <string name="error_empty_fields">Please fill in all required fields</string>
+    <string name="enter_email_for_reset">Please enter your email address first</string>
+    <string name="password_reset_sent">Password reset email sent!</string>
+
+    <!-- Navigation -->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="my_routes">My Routes</string>
+    <string name="my_cargo">My Cargo</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile">Profile</string>
+    <string name="interests">Interests</string>
+
+    <!-- Routes (Fleet Owner) -->
+    <string name="post_route">Post Route</string>
+    <string name="from_city">From City</string>
+    <string name="to_city">To City</string>
+    <string name="vehicle_type">Vehicle Type</string>
+    <string name="vehicle_number">Vehicle Number</string>
+    <string name="available_capacity">Available Capacity (tons)</string>
+    <string name="price_per_ton">Price per Ton (₹)</string>
+    <string name="departure_date">Departure Date</string>
+    <string name="route_notes">Additional Notes</string>
+    <string name="post_route_success">Route posted successfully!</string>
+    <string name="accept_partial_load">Accept Partial Load</string>
+
+    <!-- Cargo (Business Owner) -->
+    <string name="post_cargo">Post Cargo Request</string>
+    <string name="goods_type">Goods Type</string>
+    <string name="goods_description">Description</string>
+    <string name="weight_tons">Weight (tons)</string>
+    <string name="pickup_city">Pickup City</string>
+    <string name="delivery_city">Delivery City</string>
+    <string name="pickup_address">Pickup Address</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="pickup_date">Pickup Date</string>
+    <string name="budget">Budget Amount (₹)</string>
+    <string name="special_requirements">Special Requirements</string>
+    <string name="post_cargo_success">Cargo request posted!</string>
+
+    <!-- Common -->
+    <string name="required_field">This field is required</string>
+    <string name="submit">Submit</string>
+    <string name="cancel">Cancel</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="call">Call</string>
+    <string name="send_interest">Send Interest</string>
+    <string name="view_details">View Details</string>
+    <string name="active">Active</string>
+    <string name="booked">Booked</string>
+    <string name="completed">Completed</string>
+    <string name="in_transit">In Transit</string>
+    <string name="cancelled">Cancelled</string>
+    <string name="open">Open</string>
+    <string name="pending">Pending</string>
+
+    <!-- Details -->
+    <string name="route_details">Route Details</string>
+    <string name="cargo_details">Cargo Details</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="distance">Distance: %1$.0f km</string>
+    <string name="capacity">Capacity</string>
+    <string name="tons">tons</string>
+    <string name="departure">Departure</string>
+    <string name="arrival">Estimated Arrival</string>
+    <string name="contact_owner">Contact Owner</string>
+    <string name="contact_fleet">Contact Fleet Owner</string>
+    
+    <!-- Interest -->
+    <string name="send_interest_title">Send Interest</string>
+    <string name="your_message">Your Message</string>
+    <string name="offered_price">Offered Price (₹)</string>
+    <string name="interest_sent">Interest sent successfully!</string>
+    <string name="interest_accepted">Interest accepted! Contact details shared.</string>
+    <string name="interest_rejected">Interest rejected</string>
+    
+    <!-- Profile -->
+    <string name="logout">Logout</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="change_language">Change Language</string>
+    <string name="total_trips">Total Trips</string>
+    <string name="rating">Rating</string>
+    <string name="verified">Verified</string>
+    <string name="not_verified">Not Verified</string>
+    
+    <!-- Errors -->
+    <string name="error_loading">Error loading data</string>
+    <string name="no_data_found">No data found</string>
+    <string name="network_error">Network error. Please check your connection.</string>
+
+
+    <!-- Additional strings -->
+    <string name="no_routes_posted">No routes posted yet</string>
+    <string name="no_cargo_posted">No cargo posted yet</string>
+    <string name="no_routes_found">No routes found</string>
+    <string name="no_cargo_found">No cargo found</string>
+
+    <!-- Plurals -->
+    <plurals name="routes_found">
+        <item quantity="one">%d route found</item>
+        <item quantity="other">%d routes found</item>
+    </plurals>
+    <plurals name="cargos_found">
+        <item quantity="one">%d cargo found</item>
+        <item quantity="other">%d cargos found</item>
+    </plurals>
+</resources>

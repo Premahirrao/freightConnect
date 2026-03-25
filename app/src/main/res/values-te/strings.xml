@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Name -->
+    <string name="app_name">FreightConnect</string>
+    <string name="app_tagline">వ్యాపార మరియు ట్రక్ యజమానులను కనెక్ట్ చేయండి</string>
+
+    <!-- Auth -->
+    <string name="login">లాగిన్</string>
+    <string name="register">రిజిస్టర్ చేయండి</string>
+    <string name="email">ఇమెయిల్ చిరునామా</string>
+    <string name="password">పాస్‌వర్డ్</string>
+    <string name="full_name">పూర్తి పేరు</string>
+    <string name="phone_number">ఫోన్ నంబర్</string>
+    <string name="company_name">కంపెనీ పేరు (ఐచ్ఛికం)</string>
+    <string name="select_language">భాషను ఎంచుకోండి</string>
+    <string name="forgot_password">పాస్‌వర్డ్ మర్చిపోయారా?</string>
+    <string name="i_am_a">నేను:</string>
+    <string name="business_owner">వ్యాపార యజమాని</string>
+    <string name="fleet_owner">ట్రక్ యజమాని</string>
+    <string name="role_business_desc">నాకు సరుకులను రవాణా చేయాల్సిన అవసరం ఉంది</string>
+    <string name="role_fleet_desc">నా దగ్గర రవాణా కోసం ట్రక్కులు అందుబాటులో ఉన్నాయి</string>
+    <string name="error_empty_fields">దయచేసి అన్ని అవసరమైన ఫీల్డ్‌లను పూరించండి</string>
+    <string name="enter_email_for_reset">దయచేసి మొదట మీ ఇమెయిల్ చిరునామాను నమోదు చేయండి</string>
+    <string name="password_reset_sent">పాస్‌వర్డ్ రీసెట్ ఇమెయిల్ పంపబడింది!</string>
+
+    <!-- Navigation -->
+    <string name="home">హోమ్</string>
+    <string name="search">శోధించండి</string>
+    <string name="my_routes">నా మార్గాలు</string>
+    <string name="my_cargo">నా కార్గో</string>
+    <string name="notifications">నోటిఫికేషన్లు</string>
+    <string name="profile">ప్రొఫైల్</string>
+    <string name="interests">ఆసక్తులు</string>
+
+    <!-- Routes -->
+    <string name="post_route">మార్గాన్ని పోస్ట్ చేయండి</string>
+    <string name="from_city">నుండి నగరం</string>
+    <string name="to_city">వరకు నగరం</string>
+    <string name="vehicle_type">వాహన రకం</string>
+    <string name="vehicle_number">వాహన నంబర్</string>
+    <string name="available_capacity">అందుబాటులో ఉన్న సామర్థ్యం (టన్లు)</string>
+    <string name="price_per_ton">టన్‌కు ధర (₹)</string>
+    <string name="departure_date">బయలుదేరే తేదీ</string>
+    <string name="route_notes">అదనపు గమనికలు</string>
+    <string name="post_route_success">మార్గం విజయవంతంగా పోస్ట్ చేయబడింది!</string>
+    <string name="accept_partial_load">పాక్షిక లోడ్‌ను అంగీకరించండి</string>
+
+    <!-- Cargo -->
+    <string name="post_cargo">కార్గో అభ్యర్థనను పోస్ట్ చేయండి</string>
+    <string name="goods_type">సరుకుల రకం</string>
+    <string name="goods_description">వివరణ</string>
+    <string name="weight_tons">బరువు (టన్లు)</string>
+    <string name="pickup_city">పికప్ నగరం</string>
+    <string name="delivery_city">డెలివరీ నగరం</string>
+    <string name="pickup_address">పికప్ చిరునామా</string>
+    <string name="delivery_address">డెలివరీ చిరునామా</string>
+    <string name="pickup_date">పికప్ తేదీ</string>
+    <string name="budget">బడ్జెట్ మొత్తం (₹)</string>
+    <string name="special_requirements">ప్రత్యేక అవసరాలు</string>
+    <string name="post_cargo_success">కార్గో అభ్యర్థన పోస్ట్ చేయబడింది!</string>
+
+    <!-- Common -->
+    <string name="required_field">ఈ ఫీల్డ్ అవసరం</string>
+    <string name="submit">సమర్పించండి</string>
+    <string name="cancel">రద్దు చేయండి</string>
+    <string name="accept">అంగీకరించండి</string>
+    <string name="reject">తిరస్కరించండి</string>
+    <string name="call">కాల్ చేయండి</string>
+    <string name="send_interest">ఆసక్తిని పంపండి</string>
+    <string name="view_details">వివరాలను చూడండి</string>
+    <string name="active">యాక్టివ్</string>
+    <string name="booked">బుక్ చేయబడింది</string>
+    <string name="completed">పూర్తయింది</string>
+    <string name="in_transit">రవాణాలో</string>
+    <string name="cancelled">రద్దు చేయబడింది</string>
+    <string name="open">తెరవండి</string>
+    <string name="pending">పెండింగ్‌లో</string>
+
+    <!-- Details -->
+    <string name="route_details">మార్గం వివరాలు</string>
+    <string name="cargo_details">కార్గో వివరాలు</string>
+    <string name="from">నుండి</string>
+    <string name="to">వరకు</string>
+    <string name="distance">దూరం: %1$.0f కి.మీ</string>
+    <string name="capacity">సామర్థ్యం</string>
+    <string name="tons">టన్లు</string>
+    <string name="departure">బయలుదేరడం</string>
+    <string name="arrival">అంచనా రాక</string>
+    <string name="contact_owner">యజమానిని సంప్రదించండి</string>
+    <string name="contact_fleet">ట్రక్ యజమానిని సంప్రదించండి</string>
+    
+    <!-- Interest -->
+    <string name="send_interest_title">ఆసక్తిని పంపండి</string>
+    <string name="your_message">మీ సందేశం</string>
+    <string name="offered_price">అందించిన ధర (₹)</string>
+    <string name="interest_sent">ఆసక్తి విజయవంతంగా పంపబడింది!</string>
+    <string name="interest_accepted">ఆసక్తి అంగీకరించబడింది! సంప్రదింపు వివరాలు భాగస్వామ్యం చేయబడ్డాయి.</string>
+    <string name="interest_rejected">ఆసక్తి తిరస్కరించబడింది</string>
+    
+    <!-- Profile -->
+    <string name="logout">లాగ్ అవుట్</string>
+    <string name="edit_profile">ప్రొఫైల్‌ను సవరించండి</string>
+    <string name="change_language">భాషను మార్చండి</string>
+    <string name="total_trips">మొత్తం ట్రిప్పులు</string>
+    <string name="rating">రేటింగ్</string>
+    <string name="verified">ధృవీకరించబడింది</string>
+    <string name="not_verified">ధృవీకరించబడలేదు</string>
+    
+    <!-- Errors -->
+    <string name="error_loading">డేటా లోడ్ చేయడంలో లోపం</string>
+    <string name="no_data_found">డేటా కనుగొనబడలేదు</string>
+    <string name="network_error">నెట్‌వర్క్ లోపం. దయచేసి మీ కనెక్షన్‌ను తనిఖీ చేయండి.</string>
+    <string name="no_routes_posted">ఇంకా మార్గాలు పోస్ట్ చేయబడలేదు</string>
+    <string name="no_cargo_posted">ఇంకా కార్గో పోస్ట్ చేయబడలేదు</string>
+    <string name="no_routes_found">మార్గాలు కనుగొనబడలేదు</string>
+    <string name="no_cargo_found">కార్గో కనుగొనబడలేదు</string>
+
+    <!-- Plurals -->
+    <plurals name="routes_found">
+        <item quantity="one">%d మార్గం కనుగొనబడింది</item>
+        <item quantity="other">%d మార్గాలు కనుగొనబడ్డాయి</item>
+    </plurals>
+    <plurals name="cargos_found">
+        <item quantity="one">%d కార్గో కనుగొనబడింది</item>
+        <item quantity="other">%d కార్గోలు కనుగొనబడ్డాయి</item>
+    </plurals>
+</resources>

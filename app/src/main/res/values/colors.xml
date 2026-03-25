@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary">#1565C0</color>
+    <color name="primary_dark">#0D47A1</color>
+    <color name="primary_light">#90CAF9</color>
+    <color name="secondary">#FF6D00</color>
+    <color name="secondary_dark">#E65100</color>
+
+    <!-- Background -->
+    <color name="bg_auth">#F5F7FA</color>
+    <color name="bg_main">#F0F4F8</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#1A1A2E</color>
+    <color name="text_secondary">#6B7280</color>
+
+    <!-- Status Colors -->
+    <color name="status_active">#1976D2</color>
+    <color name="status_booked">#388E3C</color>
+    <color name="status_in_transit">#7B1FA2</color>
+    <color name="status_completed">#00897B</color>
+    <color name="status_cancelled">#D32F2F</color>
+    <color name="status_open">#FB8C00</color>
+    <color name="status_pending">#F57C00</color>
+
+    <!-- Accent -->
+    <color name="accent_green">#43A047</color>
+    <color name="accent_orange">#FB8C00</color>
+    <color name="error_red">#E53935</color>
+
+    <!-- UI Elements -->
+    <color name="divider">#E5E7EB</color>
+    <color name="card_stroke">#E0E7FF</color>
+    <color name="chip_bg">#E3F2FD</color>
+    <color name="chip_text">#1565C0</color>
+
+</resources>
