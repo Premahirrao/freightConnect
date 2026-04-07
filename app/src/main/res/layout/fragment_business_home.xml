@@ -33,6 +33,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- Business Dashboard -->
+                <include layout="@layout/dashboard_business" />
+
                 <!-- Shimmer Loading -->
                 <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/shimmerLayout"

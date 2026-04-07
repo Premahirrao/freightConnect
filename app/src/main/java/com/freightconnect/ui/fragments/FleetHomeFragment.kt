@@ -10,7 +10,6 @@ import com.freightconnect.R
 import com.freightconnect.databinding.FragmentFleetHomeBinding
 import com.freightconnect.ui.adapters.RouteAdapter
 import com.freightconnect.viewmodel.FleetHomeViewModel
-import com.google.android.material.snackbar.Snackbar
 
 class FleetHomeFragment : Fragment() {
 
@@ -31,14 +30,17 @@ class FleetHomeFragment : Fragment() {
         observeData()
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Refresh data when coming back from posting a route
+        viewModel.refreshData()
+    }
+
     private fun setupRecyclerView() {
         routeAdapter = RouteAdapter(
             onRouteClick = { route ->
                 val action = FleetHomeFragmentDirections.actionHomeToRouteDetail(route.routeId)
                 findNavController().navigate(action)
-            },
-            onCallClick = { phone ->
-                // Will be implemented in detail screen after booking
             }
         )
         
@@ -48,8 +50,18 @@ class FleetHomeFragment : Fragment() {
         }
 
         binding.swipeRefresh.setOnRefreshListener {
-            viewModel.loadMyRoutes()
+            viewModel.refreshData()
         }
+
+        // Cache views from dashboard layout
+        val tvCompletedTrips = binding.root.findViewById<android.widget.TextView>(R.id.tvCompletedTrips)
+        val tvTotalRoutes = binding.root.findViewById<android.widget.TextView>(R.id.tvTotalRoutes)
+        
+        // Store for use in observeData
+        binding.root.tag = mapOf(
+            "tvCompletedTrips" to tvCompletedTrips,
+            "tvTotalRoutes" to tvTotalRoutes
+        )
     }
 
     private fun setupFab() {
@@ -59,6 +71,12 @@ class FleetHomeFragment : Fragment() {
     }
 
     private fun observeData() {
+        // Get cached views from dashboard layout
+        @Suppress("UNCHECKED_CAST")
+        val viewsMap = binding.root.tag as? Map<String, android.widget.TextView>
+        val tvCompletedTrips = viewsMap?.get("tvCompletedTrips")
+        val tvTotalRoutes = viewsMap?.get("tvTotalRoutes")
+
         viewModel.myRoutes.observe(viewLifecycleOwner) { routes ->
             binding.swipeRefresh.isRefreshing = false
             
@@ -92,7 +110,17 @@ class FleetHomeFragment : Fragment() {
                 binding.shimmerLayout.visibility = View.GONE
             }
         }
+
+        // Dashboard metrics
+        viewModel.completedTrips.observe(viewLifecycleOwner) { count ->
+            tvCompletedTrips?.text = count.toString()
+        }
+
+        viewModel.totalPostedRoutes.observe(viewLifecycleOwner) { count ->
+            tvTotalRoutes?.text = count.toString()
+        }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -30,6 +30,11 @@ class BusinessHomeFragment : Fragment() {
         observeData()
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshData()
+    }
+
     private fun setupRecyclerView() {
         cargoAdapter = CargoAdapter(
             onCargoClick = { cargo ->
@@ -44,16 +49,22 @@ class BusinessHomeFragment : Fragment() {
         }
 
         binding.swipeRefresh.setOnRefreshListener {
-            viewModel.loadMyCargos()
+            viewModel.refreshData()
         }
     }
 
+    /**
+     * Setup FAB to post new cargo
+     */
     private fun setupFab() {
         binding.fabPostCargo.setOnClickListener {
             findNavController().navigate(R.id.action_home_to_postCargo)
         }
     }
 
+    /**
+     * Observe dashboard data and update UI accordingly
+     */
     private fun observeData() {
         viewModel.myCargos.observe(viewLifecycleOwner) { cargos ->
             binding.swipeRefresh.isRefreshing = false
@@ -87,6 +98,35 @@ class BusinessHomeFragment : Fragment() {
                 binding.shimmerLayout.stopShimmer()
                 binding.shimmerLayout.visibility = View.GONE
             }
+        }
+
+        // Update dashboard metrics
+        updateDashboardMetrics()
+    }
+
+    /**
+     * Update dashboard metric cards
+     */
+    private fun updateDashboardMetrics() {
+        val tvTotalCargos = binding.root.findViewById<android.widget.TextView>(R.id.tvTotalCargos)
+        val tvOpenCargos = binding.root.findViewById<android.widget.TextView>(R.id.tvOpenCargos)
+        val tvPendingCargos = binding.root.findViewById<android.widget.TextView>(R.id.tvPendingCargos)
+        val tvBookedCargos = binding.root.findViewById<android.widget.TextView>(R.id.tvBookedCargos)
+
+        viewModel.totalCargos.observe(viewLifecycleOwner) { count ->
+            tvTotalCargos?.text = count.toString()
+        }
+
+        viewModel.openCargos.observe(viewLifecycleOwner) { count ->
+            tvOpenCargos?.text = count.toString()
+        }
+
+        viewModel.pendingCargos.observe(viewLifecycleOwner) { count ->
+            tvPendingCargos?.text = count.toString()
+        }
+
+        viewModel.bookedCargos.observe(viewLifecycleOwner) { count ->
+            tvBookedCargos?.text = count.toString()
         }
     }
 

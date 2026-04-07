@@ -27,7 +27,7 @@ data class User(
 )
 
 // ═══════════════════════════════════════════════════════════════════════════
-// FLEET OWNER (DRIVER) - Posts Available Routes
+// VEHICLE TYPES
 // ═══════════════════════════════════════════════════════════════════════════
 
 enum class VehicleType(val displayNameEn: String, val maxCapacityTons: Float) {
@@ -40,6 +40,10 @@ enum class VehicleType(val displayNameEn: String, val maxCapacityTons: Float) {
     REFRIGERATED("Refrigerated Truck", 8f),
     FLATBED("Flatbed Truck", 12f)
 }
+
+// ═══════════════════════════════════════════════════════════════════════════
+// FLEET OWNER (DRIVER) - Posts Available Routes
+// ═══════════════════════════════════════════════════════════════════════════
 
 enum class RouteStatus {
     ACTIVE,      // Route available for booking
@@ -198,6 +202,7 @@ data class BookingInterest(
     val message: String = "",
     val offeredPrice: Double = 0.0,
     val status: InterestStatus = InterestStatus.PENDING,
+    val rejectionReason: String = "",  // Task 10: Reason for rejection
     val createdAt: Long = System.currentTimeMillis()
 )
 
@@ -263,7 +268,7 @@ enum class NotificationType {
     CANCELLED
 }
 
-data class AppNotification(
+data class notifications(
     val id: String = "",
     val recipientUid: String = "",
     val type: NotificationType = NotificationType.INTEREST_RECEIVED,
@@ -286,3 +291,4 @@ enum class AppLanguage(val code: String, val displayName: String) {
     MARATHI("mr", "मराठी"),
     TELUGU("te", "తెలుగు")
 }
+

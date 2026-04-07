@@ -114,6 +114,39 @@
     <string name="no_cargo_posted">ఇంకా కార్గో పోస్ట్ చేయబడలేదు</string>
     <string name="no_routes_found">మార్గాలు కనుగొనబడలేదు</string>
     <string name="no_cargo_found">కార్గో కనుగొనబడలేదు</string>
+    <string name="no_notifications">ఇప్పటివరకు ఎలాంటి నోటిఫికేషన్లు లేవు</string>
+
+    <string name="tab_received_interests">మీ కోసం ఆఫర్లు</string>
+    <string name="tab_sent_interests">నా ఆఫర్లు</string>
+
+    <string name="direction_incoming">← వచ్చినవి</string>
+    <string name="direction_outgoing">→ పంపినవి</string>
+
+    <string name="unread_interests">చదవని ఆసక్తులు</string>
+
+    <string name="manage_vehicles">నా వాహనాలు</string>
+    <string name="add_vehicle">వాహనం జోడించండి</string>
+    <string name="edit_vehicle">వాహనాన్ని సవరించండి</string>
+    <string name="delete_vehicle">వాహనాన్ని తొలగించండి</string>
+    <string name="vehicle_added">వాహనం విజయవంతంగా జోడించబడింది</string>
+    <string name="vehicle_updated">వాహనం విజయవంతంగా నవీకరించబడింది</string>
+    <string name="vehicle_deleted">వాహనం తొలగించబడింది</string>
+    <string name="no_vehicles">ఇప్పటివరకు ఎలాంటి వాహనాలు జోడించబడలేదు</string>
+
+    <string name="available">✓ అందుబాటులో ఉంది</string>
+    <string name="already_matched">✗ ఇప్పటికే సరిపోలింది</string>
+
+    <string name="rating_format">★ %1$.1f/5</string>
+    <string name="trips_format">%1$d ప్రయాణాలు</string>
+    <string name="verified_badge">✓ ధృవీకరించబడింది</string>
+
+    <string name="reason_already_matched">ఇప్పటికే ఎవరికో సరిపోలింది</string>
+    <string name="reason_pricing">ధర ఆమోదయోగ్యం కాదు</string>
+    <string name="reason_will_contact">తర్వాత సంప్రదిస్తాను</string>
+    <string name="reason_not_suitable">నా అవసరాలకు సరిపోదు</string>
+    <string name="reason_other">ఇతర కారణం</string>
+    <string name="reject_interest_title">మీరు ఈ ఆసక్తిని ఎందుకు తిరస్కరిస్తున్నారు?</string>
+    <string name="rejection_reason_saved">ఆసక్తి అభిప్రాయంతో తిరస్కరించబడింది</string>
 
     <!-- Plurals -->
     <plurals name="routes_found">

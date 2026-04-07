@@ -4,6 +4,7 @@ import com.freightconnect.model.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.Query
 import kotlinx.coroutines.tasks.await
 
@@ -298,16 +299,102 @@ suspend fun acceptInterest(interestId: String) {
             }
         }
     }.await()
+    
+    // Task 12: Send notification to initiator that interest was accepted
+    val initiator = getUser(interest.initiatorUid)
+    notifyInterestAccepted(interest, initiator)
     }
 
-    suspend fun rejectInterest(interestId: String) {
+    suspend fun rejectInterest(interestId: String, reason: String = "") {
+        // Task 10: Save rejection reason along with status
         interestsRef.document(interestId)
-            .update("status", InterestStatus.REJECTED.name).await()
+            .update(mapOf(
+                "status" to InterestStatus.REJECTED.name,
+                "rejectionReason" to reason
+            )).await()
+        
+        // Task 12: Send notification to initiator that interest was rejected
+        val interest = interestsRef.document(interestId).get().await()
+            .toObject(BookingInterest::class.java)
+        if (interest != null) {
+            val initiator = getUser(interest.initiatorUid)
+            notifyInterestRejected(interest, initiator)
+        }
     }
 
-    // ═══════════════════════════════════════════════════════════════════════
-    // FLEET OWNER PROFILES
-    // ═══════════════════════════════════════════════════════════════════════
+
+    fun listenToFleetRoutes(
+        uid: String,
+        onUpdate: (List<TruckRoute>) -> Unit,
+        onError: (Exception) -> Unit = {}
+    ): ListenerRegistration =
+        truckRoutesRef.whereEqualTo("fleetOwnerUid", uid)
+            .orderBy("createdAt", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    onError(error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val routes = snapshot.toObjects(TruckRoute::class.java)
+                    onUpdate(routes)
+                }
+            }
+
+    fun listenToFleetInterests(
+        uid: String,
+        onUpdate: (List<BookingInterest>) -> Unit,
+        onError: (Exception) -> Unit = {}
+    ): ListenerRegistration =
+        interestsRef.whereEqualTo("targetUid", uid)
+            .whereEqualTo("status", InterestStatus.PENDING.name)
+            .orderBy("createdAt", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    onError(error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val interests = snapshot.toObjects(BookingInterest::class.java)
+                    onUpdate(interests)
+                }
+            }
+
+    fun listenToBusinessCargos(
+        uid: String,
+        onUpdate: (List<CargoRequest>) -> Unit,
+        onError: (Exception) -> Unit = {}
+    ): ListenerRegistration =
+        cargoRequestsRef.whereEqualTo("businessOwnerUid", uid)
+            .orderBy("createdAt", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    onError(error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val cargos = snapshot.toObjects(CargoRequest::class.java)
+                    onUpdate(cargos)
+                }
+            }
+
+    fun listenToBusinessInterests(
+        uid: String,
+        onUpdate: (List<BookingInterest>) -> Unit,
+        onError: (Exception) -> Unit = {}
+    ): ListenerRegistration =
+        interestsRef.whereEqualTo("targetUid", uid)
+            .orderBy("createdAt", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    onError(error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val interests = snapshot.toObjects(BookingInterest::class.java)
+                    onUpdate(interests)
+                }
+            }
 
     suspend fun getFleetProfile(uid: String): FleetOwnerProfile? =
         fleetProfilesRef.document(uid).get().await()
@@ -335,20 +422,166 @@ suspend fun acceptInterest(interestId: String) {
     }
 
     // ═══════════════════════════════════════════════════════════════════════
+    // TASK 11: REAL-TIME LISTENERS FOR INTERESTS
+    // ═══════════════════════════════════════════════════════════════════════
+
+    /**
+     * Task 11: Listen to received interests in real-time (replaces polling)
+     * Emits updates whenever received interests change
+     */
+    fun listenToReceivedInterests(
+        uid: String,
+        onUpdate: (List<BookingInterest>) -> Unit,
+        onError: (Exception) -> Unit = {}
+    ): ListenerRegistration =
+        interestsRef.whereEqualTo("targetUid", uid)
+            .orderBy("createdAt", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    onError(error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val interests = snapshot.toObjects(BookingInterest::class.java)
+                    onUpdate(interests)
+                }
+            }
+
+    /**
+     * Task 11: Listen to sent interests in real-time (replaces polling)
+     * Emits updates whenever sent interests change
+     */
+    fun listenToSentInterests(
+        uid: String,
+        onUpdate: (List<BookingInterest>) -> Unit,
+        onError: (Exception) -> Unit = {}
+    ): ListenerRegistration =
+        interestsRef.whereEqualTo("initiatorUid", uid)
+            .orderBy("createdAt", Query.Direction.DESCENDING)
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    onError(error)
+                    return@addSnapshotListener
+                }
+                if (snapshot != null) {
+                    val interests = snapshot.toObjects(BookingInterest::class.java)
+                    onUpdate(interests)
+                }
+            }
+
+    /**
+     * Task 11: Get unread interest count (pending interests received)
+     * Used for badge counter
+     */
+    suspend fun getUnreadInterestCount(uid: String): Int {
+        return try {
+            interestsRef.whereEqualTo("targetUid", uid)
+                .whereEqualTo("status", InterestStatus.PENDING.name)
+                .get().await()
+                .size()
+        } catch (e: Exception) {
+            0
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════════════════
     // NOTIFICATIONS
     // ═══════════════════════════════════════════════════════════════════════
 
-    suspend fun createNotification(notification: AppNotification) {
+    /**
+     * Task 12: Create and send a notification to user
+     * Called when interest is received, accepted, rejected, etc
+     */
+    suspend fun sendNotification(
+        recipientUid: String,
+        type: NotificationType,
+        title: String,
+        body: String,
+        relatedRouteId: String = "",
+        relatedCargoId: String = "",
+        relatedInterestId: String = ""
+    ) {
+        val notification = notifications(
+            recipientUid = recipientUid,
+            type = type,
+            title = title,
+            body = body,
+            relatedRouteId = relatedRouteId,
+            relatedCargoId = relatedCargoId,
+            relatedInterestId = relatedInterestId
+        )
+        createNotification(notification)
+    }
+
+    /**
+     * Task 12: Notify recipient when interest is received
+     */
+    suspend fun notifyInterestReceived(
+        interest: BookingInterest,
+        recipientUser: User?
+    ) {
+        if (recipientUser?.fcmToken?.isNotBlank() == true) {
+            sendNotification(
+                recipientUid = interest.targetUid,
+                type = NotificationType.INTEREST_RECEIVED,
+                title = "New interest from ${interest.initiatorName}",
+                body = "${interest.initiatorRole.name.replace("_", " ")} is interested in your ${if (interest.cargoId.isNotBlank()) "cargo" else "route"}!",
+                relatedInterestId = interest.interestId,
+                relatedCargoId = interest.cargoId,
+                relatedRouteId = interest.routeId
+            )
+        }
+    }
+
+    /**
+     * Task 12: Notify initiator when interest is accepted
+     */
+    suspend fun notifyInterestAccepted(
+        interest: BookingInterest,
+        initiatorUser: User?
+    ) {
+        if (initiatorUser?.fcmToken?.isNotBlank() == true) {
+            sendNotification(
+                recipientUid = interest.initiatorUid,
+                type = NotificationType.INTEREST_ACCEPTED,
+                title = "Interest accepted!",
+                body = "${interest.targetName} accepted your interest. You can now contact them!",
+                relatedInterestId = interest.interestId,
+                relatedCargoId = interest.cargoId,
+                relatedRouteId = interest.routeId
+            )
+        }
+    }
+
+    /**
+     * Task 12: Notify initiator when interest is rejected
+     */
+    suspend fun notifyInterestRejected(
+        interest: BookingInterest,
+        initiatorUser: User?
+    ) {
+        if (initiatorUser?.fcmToken?.isNotBlank() == true) {
+            sendNotification(
+                recipientUid = interest.initiatorUid,
+                type = NotificationType.INTEREST_REJECTED,
+                title = "Interest declined",
+                body = "${interest.targetName} declined your interest${if (interest.rejectionReason.isNotBlank()) ": ${interest.rejectionReason}" else ""}",
+                relatedInterestId = interest.interestId
+            )
+        }
+    }
+
+    suspend fun createNotification(notification: notifications) {
         val ref = notificationsRef.document()
         notificationsRef.document(ref.id).set(notification.copy(id = ref.id)).await()
     }
 
-    suspend fun getUserNotifications(uid: String): List<AppNotification> =
+    suspend fun getUserNotifications(uid: String): List<notifications> =
         notificationsRef.whereEqualTo("recipientUid", uid)
             .orderBy("createdAt", Query.Direction.DESCENDING)
             .limit(50)
             .get().await()
-            .toObjects(AppNotification::class.java)
+            .toObjects(notifications::class.java)
 
     suspend fun markNotificationAsRead(notificationId: String) {
         notificationsRef.document(notificationId).update("isRead", true).await()

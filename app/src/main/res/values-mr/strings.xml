@@ -114,7 +114,39 @@
     <string name="no_cargo_posted">अद्याप कोणताही माल पोस्ट केलेला नाही</string>
     <string name="no_routes_found">कोणतेही मार्ग सापडले नाहीत</string>
     <string name="no_cargo_found">कोणताही माल सापडला नाही</string>
+    <string name="no_notifications">अद्याप कोणत्याही सूचना नाहीत</string>
 
+    <string name="tab_received_interests">तुमच्यासाठी ऑफर्स</string>
+    <string name="tab_sent_interests">माझे ऑफर्स</string>
+
+    <string name="direction_incoming">← प्राप्त</string>
+    <string name="direction_outgoing">→ पाठवले</string>
+
+    <string name="unread_interests">न वाचलेल्या रस दाखवणी</string>
+
+    <string name="manage_vehicles">माझी वाहने</string>
+    <string name="add_vehicle">वाहन जोडा</string>
+    <string name="edit_vehicle">वाहन संपादित करा</string>
+    <string name="delete_vehicle">वाहन हटवा</string>
+    <string name="vehicle_added">वाहन यशस्वीरित्या जोडले गेले</string>
+    <string name="vehicle_updated">वाहन यशस्वीरित्या अपडेट केले गेले</string>
+    <string name="vehicle_deleted">वाहन हटवले गेले</string>
+    <string name="no_vehicles">अद्याप कोणतेही वाहन जोडलेले नाही</string>
+
+    <string name="available">✓ उपलब्ध</string>
+    <string name="already_matched">✗ आधीच जुळलेले</string>
+
+    <string name="rating_format">★ %1$.1f/5</string>
+    <string name="trips_format">%1$d प्रवास</string>
+    <string name="verified_badge">✓ सत्यापित</string>
+
+    <string name="reason_already_matched">आधीच कोणाशी तरी जुळले आहे</string>
+    <string name="reason_pricing">किंमत स्वीकारार्ह नाही</string>
+    <string name="reason_will_contact">नंतर संपर्क करू</string>
+    <string name="reason_not_suitable">माझ्या गरजांसाठी योग्य नाही</string>
+    <string name="reason_other">इतर कारण</string>
+    <string name="reject_interest_title">तुम्ही ही रुची का नाकारत आहात?</string>
+    <string name="rejection_reason_saved">रुची अभिप्रायासह नाकारली</string>
     <!-- Plurals -->
     <plurals name="routes_found">
         <item quantity="one">%d मार्ग सापडला</item>

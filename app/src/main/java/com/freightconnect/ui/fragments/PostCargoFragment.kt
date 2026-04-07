@@ -44,12 +44,12 @@ class PostCargoFragment : Fragment() {
     }
 
     private fun setupDropdowns() {
-        val goodsTypes = GoodsType.values().map { it.displayNameEn }
+        val goodsTypes = GoodsType.entries.map { it.displayNameEn }
         binding.actvGoodsType.setAdapter(
             ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, goodsTypes)
         )
 
-        val vehicleTypes = VehicleType.values().map { it.displayNameEn }
+        val vehicleTypes = VehicleType.entries.map { it.displayNameEn }
         binding.actvRequiredVehicle.setAdapter(
             ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, vehicleTypes)
         )
@@ -86,11 +86,11 @@ class PostCargoFragment : Fragment() {
                     return@launch
                 }
 
-                val goodsTypeIndex = GoodsType.values().indexOfFirst {
+                val goodsTypeIndex = GoodsType.entries.indexOfFirst {
                     it.displayNameEn == binding.actvGoodsType.text.toString()
                 }.takeIf { it >= 0 } ?: 0
 
-                val vehicleTypeIndex = VehicleType.values().indexOfFirst {
+                val vehicleTypeIndex = VehicleType.entries.indexOfFirst {
                     it.displayNameEn == binding.actvRequiredVehicle.text.toString()
                 }.takeIf { it >= 0 } ?: 0
 
@@ -99,14 +99,14 @@ class PostCargoFragment : Fragment() {
                     businessOwnerName = user.name,
                     businessOwnerPhone = user.phone,
                     businessOwnerCompany = user.companyName,
-                    goodsType = GoodsType.values()[goodsTypeIndex],
+                    goodsType = GoodsType.entries[goodsTypeIndex],
                     goodsDescription = binding.etDescription.text.toString().trim(),
                     weightTons = binding.etWeight.text.toString().toFloatOrNull() ?: 0f,
                     pickupCity = binding.etPickupCity.text.toString().trim(),
                     pickupAddress = binding.etPickupAddress.text.toString().trim(),
                     deliveryCity = binding.etDeliveryCity.text.toString().trim(),
                     deliveryAddress = binding.etDeliveryAddress.text.toString().trim(),
-                    requiredVehicleType = VehicleType.values()[vehicleTypeIndex],
+                    requiredVehicleType = VehicleType.entries[vehicleTypeIndex],
                     pickupDate = selectedPickupDate,
                     budgetAmount = binding.etBudget.text.toString().toDoubleOrNull() ?: 0.0,
                     specialRequirements = binding.etSpecialReq.text.toString().trim()

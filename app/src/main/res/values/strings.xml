@@ -97,6 +97,35 @@
     <string name="interest_accepted">Interest accepted! Contact details shared.</string>
     <string name="interest_rejected">Interest rejected</string>
     
+    <!-- Interest Tabs -->
+    <string name="tab_received_interests">Offers for You</string>
+    <string name="tab_sent_interests">My Offers</string>
+
+    <!-- Direction Indicators -->
+    <string name="direction_incoming">← Incoming</string>
+    <string name="direction_outgoing">→ Outgoing</string>
+
+    <!-- Badge -->
+    <string name="unread_interests">Unread interests</string>
+
+    <!-- Availability Status -->
+    <string name="available">✓ Available</string>
+    <string name="already_matched">✗ Already Matched</string>
+
+    <!-- Trust Indicators -->
+    <string name="rating_format">★ %1$.1f/5</string>
+    <string name="trips_format">%1$d trips</string>
+    <string name="verified_badge">✓ Verified</string>
+
+    <!-- Rejection Reasons -->
+    <string name="reason_already_matched">Already matched with someone</string>
+    <string name="reason_pricing">Pricing not acceptable</string>
+    <string name="reason_will_contact">Will contact later</string>
+    <string name="reason_not_suitable">Not suitable for my needs</string>
+    <string name="reason_other">Other reason</string>
+    <string name="reject_interest_title">Why are you rejecting this interest?</string>
+    <string name="rejection_reason_saved">Interest rejected with feedback</string>
+
     <!-- Profile -->
     <string name="logout">Logout</string>
     <string name="edit_profile">Edit Profile</string>
@@ -110,6 +139,7 @@
     <string name="error_loading">Error loading data</string>
     <string name="no_data_found">No data found</string>
     <string name="network_error">Network error. Please check your connection.</string>
+    <string name="no_notifications">No notifications yet</string>
 
 
     <!-- Additional strings -->
@@ -127,4 +157,15 @@
         <item quantity="one">%d cargo found</item>
         <item quantity="other">%d cargos found</item>
     </plurals>
+
+    <!-- Vehicles -->
+    <string name="manage_vehicles">My Vehicles</string>
+    <string name="add_vehicle">Add Vehicle</string>
+    <string name="edit_vehicle">Edit Vehicle</string>
+    <string name="delete_vehicle">Delete Vehicle</string>
+    <string name="vehicle_added">Vehicle added successfully</string>
+    <string name="vehicle_updated">Vehicle updated successfully</string>
+    <string name="vehicle_deleted">Vehicle deleted</string>
+    <string name="no_vehicles">No vehicles added yet</string>
+
 </resources>

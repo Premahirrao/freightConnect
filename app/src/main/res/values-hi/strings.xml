@@ -110,6 +110,7 @@
     <string name="error_loading">डेटा लोड करने में त्रुटि</string>
     <string name="no_data_found">कोई डेटा नहीं मिला</string>
     <string name="network_error">नेटवर्क त्रुटि। कृपया अपना कनेक्शन जांचें।</string>
+    <string name="no_notifications">अभी तक कोई सूचना नहीं</string>
 
     <!-- Additional strings -->
     <string name="no_routes_posted">अभी तक कोई रूट पोस्ट नहीं किया गया</string>
@@ -117,6 +118,38 @@
     <string name="no_routes_found">कोई रूट नहीं मिला</string>
     <string name="no_cargo_found">कोई माल नहीं मिला</string>
 
+    <string name="tab_received_interests">आपके लिए ऑफर</string>
+    <string name="tab_sent_interests">मेरे ऑफर</string>
+
+    <string name="direction_incoming">← प्राप्त</string>
+    <string name="direction_outgoing">→ भेजा गया</string>
+
+    <string name="unread_interests">अपठित रुचियाँ</string>
+
+    <string name="manage_vehicles">मेरे वाहन</string>
+    <string name="add_vehicle">वाहन जोड़ें</string>
+    <string name="edit_vehicle">वाहन संपादित करें</string>
+    <string name="delete_vehicle">वाहन हटाएं</string>
+    <string name="vehicle_added">वाहन सफलतापूर्वक जोड़ा गया</string>
+    <string name="vehicle_updated">वाहन सफलतापूर्वक अपडेट किया गया</string>
+    <string name="vehicle_deleted">वाहन हटा दिया गया</string>
+    <string name="no_vehicles">अभी तक कोई वाहन नहीं जोड़ा गया</string>
+
+
+    <string name="available">✓ उपलब्ध</string>
+    <string name="already_matched">✗ पहले से मेल खाया हुआ</string>
+
+    <string name="rating_format">★ %1$.1f/5</string>
+    <string name="trips_format">%1$d यात्राएँ</string>
+    <string name="verified_badge">✓ सत्यापित</string>
+
+    <string name="reason_already_matched">पहले से किसी के साथ मेल हो चुका है</string>
+    <string name="reason_pricing">मूल्य स्वीकार्य नहीं है</string>
+    <string name="reason_will_contact">बाद में संपर्क करेंगे</string>
+    <string name="reason_not_suitable">मेरी आवश्यकताओं के लिए उपयुक्त नहीं</string>
+    <string name="reason_other">अन्य कारण</string>
+    <string name="reject_interest_title">आप इस रुचि को क्यों अस्वीकार कर रहे हैं?</string>
+    <string name="rejection_reason_saved">रुचि को प्रतिक्रिया के साथ अस्वीकार किया गया</string>
     <!-- Plurals -->
     <plurals name="routes_found">
         <item quantity="one">%d रूट मिला</item>

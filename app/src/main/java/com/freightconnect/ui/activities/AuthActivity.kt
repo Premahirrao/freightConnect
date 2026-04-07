@@ -16,6 +16,22 @@ import com.freightconnect.viewmodel.AuthViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 
+/**
+ * AuthActivity - User Authentication & Registration
+ *
+ * FLOW: SplashActivity → AuthActivity → MainActivity
+ *
+ * Responsibilities:
+ * - Handle user login and registration
+ * - Manage role selection (Business Owner vs Fleet Owner)
+ * - Support multi-language selection
+ * - Manage password reset flow
+ *
+ * Features:
+ * - Tab-based UI for login/register
+ * - Role-based registration with role descriptions
+ * - Language selection with immediate UI recreation
+ */
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding
@@ -28,12 +44,13 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        // Apply saved language
+        // Apply saved language before inflating layout
         LanguageHelper.loadLocale(this)
         
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // If already logged in, navigate directly to main
         if (viewModel.isUserLoggedIn()) {
             navigateToMain()
             return
@@ -46,27 +63,37 @@ class AuthActivity : AppCompatActivity() {
         observeViewModel()
     }
 
+    /**
+     * Setup language selector dropdown
+     */
     private fun setupLanguageSelector() {
-        val languages = AppLanguage.values().map { it.displayName }
+        val languages = AppLanguage.entries.map { it.displayName }
         val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, languages)
         binding.actvLanguage.setAdapter(adapter)
         binding.actvLanguage.setText(AppLanguage.ENGLISH.displayName, false)
         
         binding.actvLanguage.setOnItemClickListener { _, _, position, _ ->
-            selectedLanguage = AppLanguage.values()[position].code
+            selectedLanguage = AppLanguage.entries[position].code
             LanguageHelper.setLocale(this, selectedLanguage)
-            recreate() // Recreate to apply language
+            recreate() // Recreate to apply language change
         }
     }
 
+    /**
+     * Setup login/register tabs
+     */
     private fun setupTabs() {
         binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 isLoginMode = tab.position == 0
+                
+                // Toggle visibility of registration-only fields
                 binding.layoutName.visibility = if (isLoginMode) View.GONE else View.VISIBLE
                 binding.layoutPhone.visibility = if (isLoginMode) View.GONE else View.VISIBLE
                 binding.layoutCompany.visibility = if (isLoginMode) View.GONE else View.VISIBLE
                 binding.layoutRoleSelector.visibility = if (isLoginMode) View.GONE else View.VISIBLE
+                
+                // Update button text
                 binding.btnAuth.text = if (isLoginMode) 
                     getString(R.string.login) else getString(R.string.register)
             }
@@ -75,6 +102,9 @@ class AuthActivity : AppCompatActivity() {
         })
     }
 
+    /**
+     * Setup role selection toggle (Business Owner vs Fleet Owner)
+     */
     private fun setupRoleToggle() {
         binding.toggleRole.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if (isChecked) {
@@ -91,6 +121,9 @@ class AuthActivity : AppCompatActivity() {
         binding.toggleRole.check(R.id.btnRoleBusiness)
     }
 
+    /**
+     * Setup authentication buttons
+     */
     private fun setupButtons() {
         binding.btnAuth.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
@@ -102,8 +135,10 @@ class AuthActivity : AppCompatActivity() {
             }
 
             if (isLoginMode) {
+                // LOGIN MODE
                 viewModel.login(email, password)
             } else {
+                // REGISTER MODE
                 val name = binding.etName.text.toString().trim()
                 val phone = binding.etPhone.text.toString().trim()
                 val company = binding.etCompany.text.toString().trim()
@@ -125,6 +160,7 @@ class AuthActivity : AppCompatActivity() {
             }
         }
 
+        // Forgot password button
         binding.tvForgotPassword.setOnClickListener {
             val email = binding.etEmail.text.toString().trim()
             if (email.isEmpty()) {
@@ -135,6 +171,9 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Observe authentication state changes
+     */
     private fun observeViewModel() {
         viewModel.authState.observe(this) { state ->
             when (state) {
@@ -163,11 +202,19 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Navigate to MainActivity with proper flags
+     */
     private fun navigateToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
         finish()
     }
 
+    /**
+     * Show snackbar message
+     */
     private fun showSnackbar(msg: String) {
         Snackbar.make(binding.root, msg, Snackbar.LENGTH_LONG).show()
     }

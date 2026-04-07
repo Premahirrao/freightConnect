@@ -7,12 +7,35 @@ import androidx.lifecycle.viewModelScope
 import com.freightconnect.model.*
 import com.freightconnect.repository.FreightRepository
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ListenerRegistration
 import kotlinx.coroutines.launch
 
 // ═══════════════════════════════════════════════════════════════════════════
-// MainViewModel
+// VIEWMODEL ARCHITECTURE OVERVIEW
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// This file contains all shared ViewModels for the FreightConnect app.
+//
+// Flow: Activity/Fragment → ViewModel → Repository → Firestore
+//
+// Key Principles:
+// 1. Each ViewModel is responsible for a specific screen/feature
+// 2. ViewModels manage UI state via LiveData observables
+// 3. Repository handles all data operations (Firestore)
+// 4. Listeners are cleaned up in onCleared() to prevent memory leaks
+//
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * MainViewModel - Manages overall app state
+ *
+ * Responsibilities:
+ * - Load currently logged-in user
+ * - Maintain user session state
+ * - Handle logout
+ *
+ * Used by: MainActivity
+ */
 class MainViewModel : ViewModel() {
 
     private val repo = FreightRepository()
@@ -34,7 +57,7 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 _currentUser.value = repo.getUser(uid)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 _currentUser.value = null
             }
         }
@@ -50,10 +73,28 @@ class MainViewModel : ViewModel() {
 // FleetHomeViewModel (Fleet Owner dashboard)
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * FleetHomeViewModel - Fleet Owner's dashboard and route management
+ *
+ * Features:
+ * - Real-time vehicle tracking
+ * - Route management (my posted routes)
+ * - Interest management (incoming booking requests)
+ * - Dashboard metrics (total vehicles, completed trips, routes, pending interests)
+ *
+ * Real-time Listeners:
+ * - vehiclesListener: Tracks fleet vehicles
+ * - routesListener: Tracks posted routes
+ * - interestsListener: Tracks incoming booking interests
+ *
+ * Used by: FleetHomeFragment
+ */
 class FleetHomeViewModel : ViewModel() {
 
     private val repo = FreightRepository()
+    private val currentUid = repo.currentUid()
 
+    // Core data
     private val _myRoutes = MutableLiveData<List<TruckRoute>>()
     val myRoutes: LiveData<List<TruckRoute>> = _myRoutes
 
@@ -63,32 +104,69 @@ class FleetHomeViewModel : ViewModel() {
     private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun loadMyRoutes() {
+    // Dashboard metrics
+    private val _completedTrips = MutableLiveData(0)
+    val completedTrips: LiveData<Int> = _completedTrips
+
+    private val _totalPostedRoutes = MutableLiveData(0)
+    val totalPostedRoutes: LiveData<Int> = _totalPostedRoutes
+
+
+    // Listener registrations for cleanup
+    private var routesListener: ListenerRegistration? = null
+    private var interestsListener: ListenerRegistration? = null
+
+    fun loadDashboardData() {
         _isLoading.value = true
-        viewModelScope.launch {
-            try {
-                _myRoutes.value = repo.getFleetOwnerRoutes(repo.currentUid())
-            } catch (e: Exception) {
-                _myRoutes.value = emptyList()
-            } finally {
+        
+        // Setup real-time listeners
+        routesListener?.remove()
+        interestsListener?.remove()
+
+        routesListener = repo.listenToFleetRoutes(
+            currentUid,
+            onUpdate = { routes ->
+                _myRoutes.value = routes
+                updateRouteMetrics(routes)
+                _isLoading.value = false
+            },
+            onError = {
                 _isLoading.value = false
             }
-        }
+        )
+
+        interestsListener = repo.listenToFleetInterests(
+            currentUid,
+            onUpdate = { interests ->
+                _receivedInterests.value = interests
+            },
+            onError = {
+                // Handle error
+            }
+        )
     }
 
-    fun loadReceivedInterests() {
-        viewModelScope.launch {
-            try {
-                _receivedInterests.value = repo.getReceivedInterests(repo.currentUid())
-            } catch (e: Exception) {
-                _receivedInterests.value = emptyList()
-            }
-        }
+    fun refreshData() {
+        loadDashboardData()
+    }
+
+    private fun updateRouteMetrics(routes: List<TruckRoute>) {
+        _totalPostedRoutes.value = routes.size
+        
+        // Count completed trips
+        val completed = routes.count { it.status == RouteStatus.COMPLETED }
+        _completedTrips.value = completed
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        // Clean up listeners to prevent memory leaks
+        routesListener?.remove()
+        interestsListener?.remove()
     }
 
     init {
-        loadMyRoutes()
-        loadReceivedInterests()
+        loadDashboardData()
     }
 }
 
@@ -96,10 +174,27 @@ class FleetHomeViewModel : ViewModel() {
 // BusinessHomeViewModel (Business Owner dashboard)
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * BusinessHomeViewModel - Business Owner's cargo management and dashboard
+ *
+ * Features:
+ * - Cargo request management (my posted cargos)
+ * - Interest management (incoming booking requests from fleet owners)
+ * - Dashboard metrics (total cargo, open, pending, booked)
+ * - Real-time updates via Firestore listeners
+ *
+ * Real-time Listeners:
+ * - cargosListener: Tracks posted cargo requests
+ * - interestsListener: Tracks incoming booking interests
+ *
+ * Used by: BusinessHomeFragment
+ */
 class BusinessHomeViewModel : ViewModel() {
 
     private val repo = FreightRepository()
+    private val currentUid = repo.currentUid()
 
+    // Core data
     private val _myCargos = MutableLiveData<List<CargoRequest>>()
     val myCargos: LiveData<List<CargoRequest>> = _myCargos
 
@@ -109,32 +204,76 @@ class BusinessHomeViewModel : ViewModel() {
     private val _isLoading = MutableLiveData(false)
     val isLoading: LiveData<Boolean> = _isLoading
 
-    fun loadMyCargos() {
+    // Dashboard metrics
+    private val _totalCargos = MutableLiveData(0)
+    val totalCargos: LiveData<Int> = _totalCargos
+
+    private val _openCargos = MutableLiveData(0)
+    val openCargos: LiveData<Int> = _openCargos
+
+    private val _pendingCargos = MutableLiveData(0)
+    val pendingCargos: LiveData<Int> = _pendingCargos
+
+    private val _bookedCargos = MutableLiveData(0)
+    val bookedCargos: LiveData<Int> = _bookedCargos
+
+    // Listener registrations for cleanup
+    private var cargosListener: ListenerRegistration? = null
+    private var interestsListener: ListenerRegistration? = null
+
+    fun loadDashboardData() {
         _isLoading.value = true
-        viewModelScope.launch {
-            try {
-                _myCargos.value = repo.getBusinessOwnerCargos(repo.currentUid())
-            } catch (e: Exception) {
-                _myCargos.value = emptyList()
-            } finally {
+        
+        // Setup real-time listeners
+        cargosListener?.remove()
+        interestsListener?.remove()
+
+        cargosListener = repo.listenToBusinessCargos(
+            currentUid,
+            onUpdate = { cargos ->
+                _myCargos.value = cargos
+                updateCargoMetrics(cargos)
+                _isLoading.value = false
+            },
+            onError = {
                 _isLoading.value = false
             }
-        }
+        )
+
+        interestsListener = repo.listenToBusinessInterests(
+            currentUid,
+            onUpdate = { interests ->
+                _receivedInterests.value = interests
+            },
+            onError = {
+                // Handle error
+            }
+        )
     }
 
-    fun loadReceivedInterests() {
-        viewModelScope.launch {
-            try {
-                _receivedInterests.value = repo.getReceivedInterests(repo.currentUid())
-            } catch (e: Exception) {
-                _receivedInterests.value = emptyList()
-            }
-        }
+    fun refreshData() {
+        loadDashboardData()
+    }
+
+    private fun updateCargoMetrics(cargos: List<CargoRequest>) {
+        // Total cargos
+        _totalCargos.value = cargos.size
+
+        // Status breakdown
+        _openCargos.value = cargos.count { it.status == CargoStatus.OPEN }
+        _pendingCargos.value = cargos.count { it.status == CargoStatus.PENDING }
+        _bookedCargos.value = cargos.count { it.status == CargoStatus.BOOKED }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        // Clean up listeners to prevent memory leaks
+        cargosListener?.remove()
+        interestsListener?.remove()
     }
 
     init {
-        loadMyCargos()
-        loadReceivedInterests()
+        loadDashboardData()
     }
 }
 
@@ -142,6 +281,16 @@ class BusinessHomeViewModel : ViewModel() {
 // SearchRoutesViewModel (Business Owner searches available routes)
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * SearchRoutesViewModel - Search and filter available truck routes
+ *
+ * Features:
+ * - Search routes by from/to cities
+ * - Filter by vehicle type
+ * - Real-time search as user types
+ *
+ * Used by: SearchRoutesFragment
+ */
 class SearchRoutesViewModel : ViewModel() {
 
     private val repo = FreightRepository()
@@ -157,7 +306,7 @@ class SearchRoutesViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 _routes.value = repo.searchRoutesByCity(fromCity, toCity)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 _routes.value = emptyList()
             } finally {
                 _isLoading.value = false
@@ -165,10 +314,6 @@ class SearchRoutesViewModel : ViewModel() {
         }
     }
 
-    fun filterByVehicleType(type: VehicleType) {
-        val current = _routes.value ?: return
-        _routes.value = current.filter { it.vehicleType == type }
-    }
 
     init {
         searchRoutes()
@@ -179,6 +324,16 @@ class SearchRoutesViewModel : ViewModel() {
 // SearchCargosViewModel (Fleet Owner searches cargo requests)
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * SearchCargosViewModel - Search and filter cargo requests
+ *
+ * Features:
+ * - Search cargos by from/to cities
+ * - Filter by goods type
+ * - Real-time search as user types
+ *
+ * Used by: SearchCargosFragment
+ */
 class SearchCargosViewModel : ViewModel() {
 
     private val repo = FreightRepository()
@@ -194,7 +349,7 @@ class SearchCargosViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 _cargos.value = repo.searchCargosByCity(fromCity, toCity)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 _cargos.value = emptyList()
             } finally {
                 _isLoading.value = false
@@ -202,10 +357,6 @@ class SearchCargosViewModel : ViewModel() {
         }
     }
 
-    fun filterByGoodsType(type: GoodsType) {
-        val current = _cargos.value ?: return
-        _cargos.value = current.filter { it.goodsType == type }
-    }
 
     init {
         searchCargos()
@@ -216,6 +367,18 @@ class SearchCargosViewModel : ViewModel() {
 // PostRouteViewModel
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * PostRouteViewModel - Handle posting new truck routes
+ *
+ * Flow:
+ * 1. User fills route details
+ * 2. PostRouteFragment calls postRoute()
+ * 3. Repository saves to Firestore
+ * 4. ViewModel emits success/error state
+ * 5. Fragment navigates back on success
+ *
+ * Used by: PostRouteFragment
+ */
 class PostRouteViewModel : ViewModel() {
 
     private val repo = FreightRepository()
@@ -248,6 +411,18 @@ class PostRouteViewModel : ViewModel() {
 // PostCargoViewModel
 // ═══════════════════════════════════════════════════════════════════════════
 
+/**
+ * PostCargoViewModel - Handle posting new cargo requests
+ *
+ * Flow:
+ * 1. User fills cargo details
+ * 2. PostCargoFragment calls postCargo()
+ * 3. Repository saves to Firestore
+ * 4. ViewModel emits success/error state
+ * 5. Fragment navigates back on success
+ *
+ * Used by: PostCargoFragment
+ */
 class PostCargoViewModel : ViewModel() {
 
     private val repo = FreightRepository()

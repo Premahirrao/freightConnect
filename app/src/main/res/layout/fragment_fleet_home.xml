@@ -33,6 +33,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- Fleet Dashboard -->
+                <include layout="@layout/dashboard_fleet" />
+
                 <!-- Shimmer Loading -->
                 <com.facebook.shimmer.ShimmerFrameLayout
                     android:id="@+id/shimmerLayout"
