@@ -115,6 +115,9 @@ class InterestAdapter(
 
         private fun loadInterestContext(interest: BookingInterest) {
             binding.apply {
+                // Display goods weight prominently
+                tvGoodsWeight.text = "📦 ${interest.goodsWeightTons} tons"
+                
                 // Load in coroutine
                 CoroutineScope(Dispatchers.Main).launch {
                     try {
@@ -123,7 +126,7 @@ class InterestAdapter(
                             val cargo = repo.getCargoRequest(interest.cargoId)
                             if (cargo != null) {
                                 tvContextLocation.text = "${cargo.pickupCity} → ${cargo.deliveryCity}"
-                                tvContextWeight.text = "${cargo.weightTons} tons"
+                                tvContextWeight.text = "Route: ${cargo.requiredVehicleType.displayNameEn}"
                                 tvContextDate.text = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
                                     .format(Date(cargo.pickupDate))
                                 cardContext.visibility = View.VISIBLE
@@ -135,7 +138,7 @@ class InterestAdapter(
                             val route = repo.getTruckRoute(interest.routeId)
                             if (route != null) {
                                 tvContextLocation.text = "${route.fromCity} → ${route.toCity}"
-                                tvContextWeight.text = "${route.availableCapacityTons} tons"
+                                tvContextWeight.text = "Truck: ${route.vehicleType.displayNameEn} (${route.remainingCapacityTons}T left)"
                                 tvContextDate.text = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
                                     .format(Date(route.departureDate))
                                 cardContext.visibility = View.VISIBLE

@@ -10,13 +10,24 @@
         <item name="android:windowBackground">@color/bg_main</item>
         <item name="android:navigationBarColor">@android:color/white</item>
         <item name="android:windowLightNavigationBar">true</item>
-        <item name="android:statusBarColor">@color/primary</item>
+        <item name="android:statusBarColor">@color/enterprise_navy</item>
     </style>
 
     <style name="Theme.FreightConnect.Splash" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:windowBackground">@color/primary</item>
         <item name="android:statusBarColor">@color/primary</item>
         <item name="android:navigationBarColor">@color/primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <style name="Theme.FreightConnect.Auth" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/auth_primary_button</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="android:windowBackground">@color/auth_bg_deep</item>
+        <item name="android:statusBarColor">@color/auth_bg_deep</item>
+        <item name="android:navigationBarColor">@color/auth_bg_deep</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">false</item>
     </style>

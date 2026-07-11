@@ -240,7 +240,8 @@ class SearchRoutesFragment : Fragment() {
     private fun performSearch() {
         val fromCity = binding.etFromCity.text.toString().trim()
         val toCity = binding.etToCity.text.toString().trim()
-        viewModel.searchRoutes(fromCity, toCity)
+        // Use real-time listener to receive live updates to route weights/status
+        viewModel.startListening(fromCity, toCity)
     }
 
     /**
@@ -278,6 +279,8 @@ class SearchRoutesFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        // Stop listening to avoid leaks and unnecessary reads
+        viewModel.stopListening()
         _binding = null
     }
 }

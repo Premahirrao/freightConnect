@@ -14,6 +14,18 @@
     <string name="company_name">कंपनीचे नाव (पर्यायी)</string>
     <string name="select_language">भाषा निवडा</string>
     <string name="forgot_password">पासवर्ड विसरलात?</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_phone">Continue with Phone</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_verification_code">Enter verification code</string>
+    <string name="send_code">Send code</string>
+    <string name="verify">Verify</string>
+    <string name="google_login_failed">Google login failed</string>
+    <string name="phone_login_failed">Phone login failed</string>
+    <string name="invalid_google_token">Invalid Google token</string>
+    <string name="invalid_phone_number">Invalid phone number</string>
+    <string name="invalid_verification_code">Invalid verification code</string>
+    <string name="phone_code_sent">Verification code sent</string>
     <string name="i_am_a">मी आहे:</string>
     <string name="business_owner">व्यवसाय मालक</string>
     <string name="fleet_owner">ट्रक मालक</string>
@@ -147,6 +159,45 @@
     <string name="reason_other">इतर कारण</string>
     <string name="reject_interest_title">तुम्ही ही रुची का नाकारत आहात?</string>
     <string name="rejection_reason_saved">रुची अभिप्रायासह नाकारली</string>
+
+    <string name="cancel_route">मार्ग रद्द करा</string>
+    <string name="cancel_cargo">कार्गो रद्द करा</string>
+    <string name="cancel_route_confirm_title">मार्ग रद्द करायचा का?</string>
+    <string name="cancel_route_confirm_message">यामुळे मार्ग रद्द होईल आणि सर्व प्रलंबित रस नाकारले जातील.</string>
+    <string name="cancel_cargo_confirm_title">कार्गो रद्द करायचा का?</string>
+    <string name="cancel_cargo_confirm_message">यामुळे कार्गो रद्द होईल आणि सर्व प्रलंबित रस नाकारले जातील.</string>
+    <string name="route_cancelled">मार्ग रद्द केला</string>
+    <string name="cargo_cancelled">कार्गो रद्द केला</string>
+    <string name="cancel_not_allowed">रद्द करणे फक्त उघड्या किंवा प्रलंबित आयटमसाठीच अनुमती आहे.</string>
+
+    <string name="remaining_weight">उर्वरित वजन</string>
+    <string name="booked_weight">बुक केलेले वजन</string>
+    <string name="total_capacity">एकूण क्षमता</string>
+    <string name="goods_weight">मालाचे वजन</string>
+    <string name="capacity_indicator">वापरलेली क्षमता</string>
+
+    <string name="partially_booked">अंशतः बुक केलेले</string>
+
+    <string name="select_cargo_title">जोडण्यासाठी कार्गो निवडा</string>
+    <string name="no_open_cargo">जोडण्यासाठी तुमच्याकडे कोणताही खुला किंवा प्रलंबित कार्गो नाही. कृपया आधी कार्गो विनंती तयार करा.</string>
+    <string name="ok">ठीक आहे</string>
+    <string name="select">निवडा</string>
+
+    <string name="greeting_format">नमस्ते, %1$s</string>
+    <string name="greeting_fallback">नमस्ते</string>
+    <string name="help">सहायता</string>
+    <string name="support_title">सहायता</string>
+    <string name="support_phone_label">फोन</string>
+    <string name="support_email_label">ईमेल</string>
+    <string name="support_phone_value">+91 90000 12345</string>
+    <string name="support_email_value">support@freightconnect.app</string>
+    <string name="support_message">फोन: %1$s\nईमेल: %2$s</string>
+
+    <string name="dont_have_account">तुमचे खाते नाही का?</string>
+    <string name="already_have_account">तुमचे आधीपासून खाते आहे का?</string>
+    <string name="status">स्थिती</string>
+
+
     <!-- Plurals -->
     <plurals name="routes_found">
         <item quantity="one">%d मार्ग सापडला</item>

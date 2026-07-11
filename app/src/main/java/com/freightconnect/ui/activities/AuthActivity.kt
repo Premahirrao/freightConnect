@@ -2,8 +2,10 @@ package com.freightconnect.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.ArrayAdapter
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.freightconnect.R
@@ -13,8 +15,19 @@ import com.freightconnect.model.UserRole
 import com.freightconnect.utils.LanguageHelper
 import com.freightconnect.viewmodel.AuthState
 import com.freightconnect.viewmodel.AuthViewModel
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
+import java.util.concurrent.TimeUnit
 
 /**
  * AuthActivity - User Authentication & Registration
@@ -36,10 +49,58 @@ class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding
     private val viewModel: AuthViewModel by viewModels()
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     private var isLoginMode = true
     private var selectedRole = UserRole.BUSINESS_OWNER
     private var selectedLanguage = "en"
+
+    private lateinit var googleSignInClient: com.google.android.gms.auth.api.signin.GoogleSignInClient
+    private var phoneVerificationId: String? = null
+    private var phoneResendToken: PhoneAuthProvider.ForceResendingToken? = null
+
+    private val googleSignInLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        val data = result.data
+        if (result.resultCode != RESULT_OK || data == null) {
+            showSnackbar(getString(R.string.google_login_failed))
+            return@registerForActivityResult
+        }
+
+        val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+        try {
+            val account = task.getResult(ApiException::class.java)
+            val idToken = account.idToken
+            if (idToken.isNullOrBlank()) {
+                showSnackbar(getString(R.string.invalid_google_token))
+                return@registerForActivityResult
+            }
+            viewModel.signInWithGoogle(idToken, selectedRole, selectedLanguage)
+        } catch (e: ApiException) {
+            showSnackbar(getString(R.string.google_login_failed))
+        }
+    }
+
+    private val phoneCallbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+            viewModel.signInWithPhone(credential, selectedRole, selectedLanguage)
+        }
+
+        override fun onVerificationFailed(e: FirebaseException) {
+            showSnackbar(e.message ?: getString(R.string.phone_login_failed))
+        }
+
+        override fun onCodeSent(
+            verificationId: String,
+            token: PhoneAuthProvider.ForceResendingToken
+        ) {
+            phoneVerificationId = verificationId
+            phoneResendToken = token
+            showSnackbar(getString(R.string.phone_code_sent))
+            showOtpDialog()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +118,19 @@ class AuthActivity : AppCompatActivity() {
         }
 
         setupLanguageSelector()
-        setupTabs()
+        setupAuthModeSwitcher()
         setupRoleToggle()
+        setupGoogleSignIn()
         setupButtons()
         observeViewModel()
+    }
+
+    private fun setupGoogleSignIn() {
+        val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, options)
     }
 
     /**
@@ -79,27 +149,30 @@ class AuthActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * Setup login/register tabs
-     */
-    private fun setupTabs() {
-        binding.tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                isLoginMode = tab.position == 0
-                
-                // Toggle visibility of registration-only fields
-                binding.layoutName.visibility = if (isLoginMode) View.GONE else View.VISIBLE
-                binding.layoutPhone.visibility = if (isLoginMode) View.GONE else View.VISIBLE
-                binding.layoutCompany.visibility = if (isLoginMode) View.GONE else View.VISIBLE
-                binding.layoutRoleSelector.visibility = if (isLoginMode) View.GONE else View.VISIBLE
-                
-                // Update button text
-                binding.btnAuth.text = if (isLoginMode) 
-                    getString(R.string.login) else getString(R.string.register)
-            }
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-            override fun onTabReselected(tab: TabLayout.Tab) {}
-        })
+    private fun setupAuthModeSwitcher() {
+        updateAuthModeUi()
+        binding.tvAuthModeAction.setOnClickListener {
+            isLoginMode = !isLoginMode
+            updateAuthModeUi()
+        }
+    }
+
+    private fun updateAuthModeUi() {
+        val registerVisibility = if (isLoginMode) View.GONE else View.VISIBLE
+
+        binding.layoutName.visibility = registerVisibility
+        binding.layoutPhone.visibility = registerVisibility
+        binding.layoutCompany.visibility = registerVisibility
+        binding.layoutRoleSelector.visibility = registerVisibility
+        binding.tvForgotPassword.visibility = if (isLoginMode) View.VISIBLE else View.GONE
+
+        binding.btnAuth.text = getString(if (isLoginMode) R.string.login else R.string.register)
+        binding.tvAuthModePrompt.text = getString(
+            if (isLoginMode) R.string.dont_have_account else R.string.already_have_account
+        )
+        binding.tvAuthModeAction.text = getString(
+            if (isLoginMode) R.string.register else R.string.login
+        )
     }
 
     /**
@@ -169,6 +242,14 @@ class AuthActivity : AppCompatActivity() {
                 viewModel.resetPassword(email)
             }
         }
+
+        binding.btnGoogleSignIn.setOnClickListener {
+            googleSignInLauncher.launch(googleSignInClient.signInIntent)
+        }
+
+        binding.btnPhoneSignIn.setOnClickListener {
+            showPhoneNumberDialog()
+        }
     }
 
     /**
@@ -180,6 +261,8 @@ class AuthActivity : AppCompatActivity() {
                 is AuthState.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                     binding.btnAuth.isEnabled = false
+                    binding.btnGoogleSignIn.isEnabled = false
+                    binding.btnPhoneSignIn.isEnabled = false
                 }
                 is AuthState.Success -> {
                     binding.progressBar.visibility = View.GONE
@@ -188,18 +271,85 @@ class AuthActivity : AppCompatActivity() {
                 is AuthState.Error -> {
                     binding.progressBar.visibility = View.GONE
                     binding.btnAuth.isEnabled = true
+                    binding.btnGoogleSignIn.isEnabled = true
+                    binding.btnPhoneSignIn.isEnabled = true
                     showSnackbar(state.message)
                 }
                 is AuthState.PasswordResetSent -> {
                     binding.progressBar.visibility = View.GONE
+                    binding.btnGoogleSignIn.isEnabled = true
+                    binding.btnPhoneSignIn.isEnabled = true
                     showSnackbar(getString(R.string.password_reset_sent))
                 }
                 else -> {
                     binding.progressBar.visibility = View.GONE
                     binding.btnAuth.isEnabled = true
+                    binding.btnGoogleSignIn.isEnabled = true
+                    binding.btnPhoneSignIn.isEnabled = true
                 }
             }
         }
+    }
+
+    private fun showPhoneNumberDialog() {
+        val inputLayout = TextInputLayout(this).apply {
+            hint = getString(R.string.enter_phone_number)
+        }
+        val input = TextInputEditText(this).apply {
+            inputType = InputType.TYPE_CLASS_PHONE
+        }
+        inputLayout.addView(input)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.continue_with_phone)
+            .setView(inputLayout)
+            .setPositiveButton(R.string.send_code) { _, _ ->
+                val phoneNumber = input.text?.toString()?.trim().orEmpty()
+                if (phoneNumber.isBlank()) {
+                    showSnackbar(getString(R.string.invalid_phone_number))
+                } else {
+                    startPhoneVerification(phoneNumber)
+                }
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+
+    private fun showOtpDialog() {
+        val verificationId = phoneVerificationId ?: return
+        val inputLayout = TextInputLayout(this).apply {
+            hint = getString(R.string.enter_verification_code)
+        }
+        val input = TextInputEditText(this).apply {
+            inputType = InputType.TYPE_CLASS_NUMBER
+        }
+        inputLayout.addView(input)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.verify)
+            .setView(inputLayout)
+            .setPositiveButton(R.string.verify) { _, _ ->
+                val code = input.text?.toString()?.trim().orEmpty()
+                if (code.isBlank()) {
+                    showSnackbar(getString(R.string.invalid_verification_code))
+                } else {
+                    val credential = PhoneAuthProvider.getCredential(verificationId, code)
+                    viewModel.signInWithPhone(credential, selectedRole, selectedLanguage)
+                }
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+
+    private fun startPhoneVerification(phoneNumber: String) {
+        val options = PhoneAuthOptions.newBuilder(firebaseAuth)
+            .setPhoneNumber(phoneNumber)
+            .setTimeout(60L, TimeUnit.SECONDS)
+            .setActivity(this)
+            .setCallbacks(phoneCallbacks)
+            .build()
+
+        PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
     /**

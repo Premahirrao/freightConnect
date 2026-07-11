@@ -1,0 +1,949 @@
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\activities\MainActivity.kt:111: Warning: Field requires API level 33 (current min is 27): android.Manifest.permission#POST_NOTIFICATIONS [InlinedApi]
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "InlinedApi":
+   This check scans through all the Android API field references in the
+   application and flags certain constants, such as static final integers and
+   Strings, which were introduced in later versions. These will actually be
+   copied into the class files rather than being referenced, which means that
+   the value is available even when running on older devices. In some cases
+   that's fine, and in other cases it can result in a runtime crash or
+   incorrect behavior. It depends on the context, so consider the code
+   carefully and decide whether it's safe and can be suppressed or whether the
+   code needs to be guarded.
+
+   If you really want to use this API and don't need to support older devices
+   just set the minSdkVersion in your build.gradle or AndroidManifest.xml
+   files.
+
+   If your code is deliberately accessing newer APIs, and you have ensured
+   (e.g. with conditional execution) that this code will only ever be called
+   on a supported platform, then you can annotate your class or method with
+   the @TargetApi annotation specifying the local minimum SDK to apply, such
+   as @TargetApi(11), such that this check considers 11 rather than your
+   manifest file's minimum SDK as the required API level.
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:16: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk 34
+        ~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\utils\LanguageHelper.kt:37: Warning: Found dynamic locale changes, but did not find corresponding Play Core library calls for downloading languages and splitting by language is not disabled in the bundle configuration [AppBundleLocaleChanges]
+        configuration.setLocale(locale)
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "AppBundleLocaleChanges":
+   When changing locales at runtime (e.g. to provide an in-app language
+   switcher), the Android App Bundle must be configured to not split by locale
+   or the Play Core library must be used to download additional locales at
+   runtime.
+
+   https://developer.android.com/guide/app-bundle/configure-base#handling_language_changes
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:50: Warning: A newer version of androidx.core:core-ktx than 1.12.0 is available: 1.18.0 [GradleDependency]
+    implementation 'androidx.core:core-ktx:1.12.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:51: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:52: Warning: A newer version of com.google.android.material:material than 1.11.0 is available: 1.13.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.11.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:53: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:54: Warning: A newer version of androidx.swiperefreshlayout:swiperefreshlayout than 1.1.0 is available: 1.2.0 [GradleDependency]
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:58: Warning: A newer version of androidx.navigation:navigation-fragment-ktx than 2.7.7 is available: 2.9.7 [GradleDependency]
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:59: Warning: A newer version of androidx.navigation:navigation-ui-ktx than 2.7.7 is available: 2.9.7 [GradleDependency]
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:62: Warning: A newer version of androidx.lifecycle:lifecycle-viewmodel-ktx than 2.7.0 is available: 2.10.0 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:63: Warning: A newer version of androidx.lifecycle:lifecycle-livedata-ktx than 2.7.0 is available: 2.10.0 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:64: Warning: A newer version of androidx.lifecycle:lifecycle-runtime-ktx than 2.7.0 is available: 2.10.0 [GradleDependency]
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:67: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-android than 1.7.3 is available: 1.9.0 [GradleDependency]
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:68: Warning: A newer version of org.jetbrains.kotlinx:kotlinx-coroutines-core than 1.7.3 is available: 1.9.0 [GradleDependency]
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:72: Warning: A newer version of com.google.firebase:firebase-bom than 32.7.2 is available: 34.11.0 [GradleDependency]
+    implementation platform('com.google.firebase:firebase-bom:32.7.2')
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:80: Warning: A newer version of com.google.android.gms:play-services-auth than 21.0.0 is available: 21.5.1 [GradleDependency]
+    implementation 'com.google.android.gms:play-services-auth:21.0.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:81: Warning: A newer version of com.google.android.gms:play-services-location than 21.1.0 is available: 21.3.0 [GradleDependency]
+    implementation 'com.google.android.gms:play-services-location:21.1.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:105: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.3.0 [GradleDependency]
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:106: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.7.0 [GradleDependency]
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\AndroidManifest.xml:39: Warning: Expecting android:screenOrientation="unspecified" or "fullSensor" for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices [LockedOrientationActivity]
+            android:screenOrientation="portrait"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\AndroidManifest.xml:51: Warning: Expecting android:screenOrientation="unspecified" or "fullSensor" for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices [LockedOrientationActivity]
+            android:screenOrientation="portrait"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\AndroidManifest.xml:58: Warning: Expecting android:screenOrientation="unspecified" or "fullSensor" for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices [LockedOrientationActivity]
+            android:screenOrientation="portrait"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "LockedOrientationActivity":
+   The <activity> element should not be locked to any orientation so that
+   users can take advantage of the multi-window environments and larger
+   screens available on Android. To fix the issue, consider declaring the
+   corresponding activity element with `screenOrientation="unspecified"or
+   "fullSensor"` attribute.
+
+   https://developer.android.com/topic/arc/window-management
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:112: Error: "available" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="available">✓ Available</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:113: Error: "already_matched" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="already_matched">✗ Already Matched</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:116: Error: "rating_format" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="rating_format">★ %1$.1f/5</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:117: Error: "trips_format" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="trips_format">%1$d trips</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:118: Error: "verified_badge" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="verified_badge">✓ Verified</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:121: Error: "reason_already_matched" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="reason_already_matched">Already matched with someone</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:122: Error: "reason_pricing" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="reason_pricing">Pricing not acceptable</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:123: Error: "reason_will_contact" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="reason_will_contact">Will contact later</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:124: Error: "reason_not_suitable" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="reason_not_suitable">Not suitable for my needs</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:125: Error: "reason_other" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="reason_other">Other reason</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:126: Error: "reject_interest_title" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="reject_interest_title">Why are you rejecting this interest?</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:127: Error: "rejection_reason_saved" is not translated in "hi" (Hindi), "te" (Telugu), "mr" (Marathi) [MissingTranslation]
+    <string name="rejection_reason_saved">Interest rejected with feedback</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "MissingTranslation":
+   If an application has more than one locale, then all the strings declared
+   in one language should also be translated in all other languages.
+
+   If the string should not be translated, you can add the attribute
+   translatable="false" on the <string> element, or you can define all your
+   non-translatable strings in a resource file called donottranslate.xml. Or,
+   you can ignore the issue with a tools:ignore="MissingTranslation"
+   attribute.
+
+   You can tell lint (and other tools) which language is the default language
+   in your res/values/ folder by specifying tools:locale="languageCode" for
+   the root <resources> element in your resource file. (The tools prefix
+   refers to the namespace declaration http://schemas.android.com/tools.)
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:117: Warning: Formatting %d followed by words ("trips"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="trips_format">%1$d trips</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PluralsCandidate":
+   This lint check looks for potential errors in internationalization where
+   you have translated a message which involves a quantity and it looks like
+   other parts of the string may need grammatical changes.
+
+   For example, rather than something like this:
+     <string name="try_again">Try again in %d seconds.</string>
+   you should be using a plural:
+      <plurals name="try_again">
+           <item quantity="one">Try again in %d second</item>
+           <item quantity="other">Try again in %d seconds</item>
+       </plurals>
+   This will ensure that in other languages the right set of translations are
+   provided for the different quantity classes.
+
+   (This check depends on some heuristics, so it may not accurately determine
+   whether a string really should be a quantity. You can use tools:ignore to
+   filter out false positives.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\network\FCMService.kt:146: Warning: Unnecessary; SDK_INT is always >= 27 [ObsoleteSdkInt]
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_interests.xml:67: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_notifications.xml:62: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_cargos.xml:133: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_routes.xml:137: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:25: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout
+             ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:193: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+        <LinearLayout
+         ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:96: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:120: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:144: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:177: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+        <LinearLayout
+         ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:25: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+            <LinearLayout
+             ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:170: Warning: This tag and its children can be replaced by one <TextView/> and a compound drawable [UseCompoundDrawables]
+        <LinearLayout
+         ~~~~~~~~~~~~
+
+   Explanation for issues of type "UseCompoundDrawables":
+   A LinearLayout which contains an ImageView and a TextView can be more
+   efficiently handled as a compound drawable (a single TextView, using the
+   drawableTop, drawableLeft, drawableRight and/or drawableBottom attributes
+   to draw one or more images adjacent to the text).
+
+   If the two widgets are offset from each other with margins, this can be
+   replaced with a drawablePadding attribute.
+
+   There's a lint quickfix to perform this conversion in the Eclipse plugin.
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\drawable\ic_language.xml:1: Warning: Very long vector path (940 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector. [VectorPath]
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="#FF000000" android:pathData="M11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM18.92,8h-2.95c-0.32,-1.25 -0.78,-2.45 -1.38,-3.56 1.84,0.63 3.37,1.91 4.33,3.56zM12,4.04c0.83,1.2 1.48,2.53 1.91,3.96h-3.82c0.43,-1.43 1.08,-2.76 1.91,-3.96zM4.26,14C4.1,13.36 4,12.69 4,12s0.1,-1.36 0.26,-2h3.38c-0.08,0.66 -0.14,1.32 -0.14,2 0,0.68 0.06,1.34 0.14,2L4.26,14zM5.08,16h2.95c0.32,1.25 0.78,2.45 1.38,3.56 -1.84,-0.63 -3.37,-1.9 -4.33,-3.56zM8.03,8L5.08,8c0.96,-1.66 2.49,-2.93 4.33,-3.56C8.81,5.55 8.35,6.75 8.03,8zM12,19.96c-0.83,-1.2 -1.48,-2.53 -1.91,-3.96h3.82c-0.43,1.43 -1.08,2.76 -1.91,3.96zM14.34,14L9.66,14c-0.09,-0.66 -0.16,-1.32 -0.16,-2 0,-0.68 0.07,-1.35 0.16,-2h4.68c0.09,0.65 0.16,1.32 0.16,2 0,0.68 -0.07,1.34 -0.16,2zM14.59,19.56c0.6,-1.11 1.06,-2.31 1.38,-3.56h2.95c-0.96,1.65 -2.49,2.93 -4.33,3.56zM16.36,14c0.08,-0.66 0.14,-1.32 0.14,-2 0,-0.68 -0.06,-1.34 -0.14,-2h3.38c0.16,0.64 0.26,1.31 0.26,2s-0.1,1.36 -0.26,2h-3.38z"/></vector>
+                                                                                                                                                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\drawable\ic_route.xml:1: Warning: Very long vector path (961 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector. [VectorPath]
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24"><path android:fillColor="#FF000000" android:pathData="M10,19.5c0,0.83 0.67,1.5 1.5,1.5s1.5,-0.67 1.5,-1.5c0,-0.83 -0.67,-1.5 -1.5,-1.5s-1.5,0.67 -1.5,1.5zM19.43,12.98c0.04,-0.32 0.07,-0.64 0.07,-0.98c0,-1.05 -0.2,-2.05 -0.59,-2.93l2.47,-1.83c0.36,-0.27 0.43,-0.77 0.15,-1.17l-2.4,-4.18c-0.27,-0.48 -0.87,-0.63 -1.35,-0.36l-2.47,1.83c-0.67,-0.52 -1.42,-0.94 -2.25,-1.23V2c0,-0.56 -0.44,-1 -1,-1h-4.8c-0.56,0 -1,0.44 -1,1v2.35c-0.83,0.29 -1.58,0.71 -2.25,1.23L7.09,3.13c-0.48,-0.27 -1.08,-0.12 -1.35,0.36L3.34,7.71c-0.27,0.48 -0.12,1.08 0.36,1.35l2.47,1.83c-0.39,0.88 -0.59,1.88 -0.59,2.93c0,0.34 0.03,0.66 0.07,0.98l-2.47,1.83c-0.36,0.27 -0.43,0.77 -0.15,1.17l2.4,4.18c0.27,0.48 0.87,0.63 1.35,0.36l2.47,-1.83c0.67,0.52 1.42,0.94 2.25,1.23v2.35c0,0.56 0.44,1 1,1h4.8c0.56,0 1,-0.44 1,-1v-2.35c0.83,-0.29 1.58,-0.71 2.25,-1.23l2.47,1.83c0.48,0.27 1.08,0.12 1.35,-0.36l2.4,-4.18c0.27,-0.48 0.12,-1.08 -0.36,-1.35l-2.47,-1.83zM12,15.5c-1.93,0 -3.5,-1.57 -3.5,-3.5s1.57,-3.5 3.5,-3.5 3.5,1.57 3.5,3.5 -1.57,3.5 -3.5,3.5z"/></vector>
+                                                                                                                                                                                                                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "VectorPath":
+   Using long vector paths is bad for performance. There are several ways to
+   make the pathData shorter:
+   * Using less precision
+   * Removing some minor details
+   * Using the Android Studio vector conversion tool
+   * Rasterizing the image (converting to PNG)
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\build.gradle:86: Warning: This library supports using KSP instead of kapt, which greatly improves performance. Learn more: https://developer.android.com/studio/build/migrate-to-ksp [KaptUsageInsteadOfKsp]
+    kapt 'com.github.bumptech.glide:compiler:4.16.0'
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "KaptUsageInsteadOfKsp":
+   KSP is a more efficient replacement for kapt. For libraries that support
+   both, KSP should be used to improve build times.
+
+   https://developer.android.com/studio/build/migrate-to-ksp
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:54: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+                    <LinearLayout
+                     ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:219: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+                    <LinearLayout
+                     ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:147: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+                    <LinearLayout
+                     ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:196: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+                    <LinearLayout
+                     ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:247: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+                    <LinearLayout
+                     ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:118: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+        <LinearLayout
+         ~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:95: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+        <LinearLayout
+         ~~~~~~~~~~~~
+
+   Explanation for issues of type "DisableBaselineAlignment":
+   When a LinearLayout is used to distribute the space proportionally between
+   nested layouts, the baseline alignment property should be turned off to
+   make the layout computation faster.
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\activity_auth.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_auth with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_auth"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\activity_splash.xml:7: Warning: Possible overdraw: Root element paints background @color/primary with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/primary">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_business_home.xml:7: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_fleet_home.xml:7: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_interests.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_notifications.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_route.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main">
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_cargos.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_routes.xml:6: Warning: Possible overdraw: Root element paints background @color/bg_main with a theme that also paints a background (inferred theme is @style/Theme.FreightConnect) [Overdraw]
+    android:background="@color/bg_main"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:8: Warning: The resource R.color.secondary_dark appears to be unused [UnusedResources]
+    <color name="secondary_dark">#E65100</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:34: Warning: The resource R.color.accent_green appears to be unused [UnusedResources]
+    <color name="accent_green">#43A047</color>
+           ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:35: Warning: The resource R.color.accent_orange appears to be unused [UnusedResources]
+    <color name="accent_orange">#FB8C00</color>
+           ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:41: Warning: The resource R.color.chip_bg appears to be unused [UnusedResources]
+    <color name="chip_bg">#E3F2FD</color>
+           ~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:42: Warning: The resource R.color.chip_text appears to be unused [UnusedResources]
+    <color name="chip_text">#1565C0</color>
+           ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:45: Warning: The resource R.color.bottom_nav_active appears to be unused [UnusedResources]
+    <color name="bottom_nav_active">#1565C0</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:46: Warning: The resource R.color.bottom_nav_inactive appears to be unused [UnusedResources]
+    <color name="bottom_nav_inactive">#6B7280</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\colors.xml:47: Warning: The resource R.color.bottom_nav_indicator appears to be unused [UnusedResources]
+    <color name="bottom_nav_indicator">#E3F2FD</color>
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:2: Warning: The resource R.layout.item_vehicle_card appears to be unused [UnusedResources]
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+^
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:64: Warning: The resource R.string.submit appears to be unused [UnusedResources]
+    <string name="submit">Submit</string>
+            ~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:70: Warning: The resource R.string.view_details appears to be unused [UnusedResources]
+    <string name="view_details">View Details</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:71: Warning: The resource R.string.active appears to be unused [UnusedResources]
+    <string name="active">Active</string>
+            ~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:72: Warning: The resource R.string.booked appears to be unused [UnusedResources]
+    <string name="booked">Booked</string>
+            ~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:73: Warning: The resource R.string.completed appears to be unused [UnusedResources]
+    <string name="completed">Completed</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:74: Warning: The resource R.string.in_transit appears to be unused [UnusedResources]
+    <string name="in_transit">In Transit</string>
+            ~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:75: Warning: The resource R.string.cancelled appears to be unused [UnusedResources]
+    <string name="cancelled">Cancelled</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:76: Warning: The resource R.string.open appears to be unused [UnusedResources]
+    <string name="open">Open</string>
+            ~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:77: Warning: The resource R.string.pending appears to be unused [UnusedResources]
+    <string name="pending">Pending</string>
+            ~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:84: Warning: The resource R.string.distance appears to be unused [UnusedResources]
+    <string name="distance">Distance: %1$.0f km</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:87: Warning: The resource R.string.departure appears to be unused [UnusedResources]
+    <string name="departure">Departure</string>
+            ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:88: Warning: The resource R.string.arrival appears to be unused [UnusedResources]
+    <string name="arrival">Estimated Arrival</string>
+            ~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:89: Warning: The resource R.string.contact_owner appears to be unused [UnusedResources]
+    <string name="contact_owner">Contact Owner</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:90: Warning: The resource R.string.contact_fleet appears to be unused [UnusedResources]
+    <string name="contact_fleet">Contact Fleet Owner</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:98: Warning: The resource R.string.interest_rejected appears to be unused [UnusedResources]
+    <string name="interest_rejected">Interest rejected</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:109: Warning: The resource R.string.unread_interests appears to be unused [UnusedResources]
+    <string name="unread_interests">Unread interests</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:116: Warning: The resource R.string.rating_format appears to be unused [UnusedResources]
+    <string name="rating_format">★ %1$.1f/5</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:117: Warning: The resource R.string.trips_format appears to be unused [UnusedResources]
+    <string name="trips_format">%1$d trips</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:131: Warning: The resource R.string.edit_profile appears to be unused [UnusedResources]
+    <string name="edit_profile">Edit Profile</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:133: Warning: The resource R.string.total_trips appears to be unused [UnusedResources]
+    <string name="total_trips">Total Trips</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:134: Warning: The resource R.string.rating appears to be unused [UnusedResources]
+    <string name="rating">Rating</string>
+            ~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:135: Warning: The resource R.string.verified appears to be unused [UnusedResources]
+    <string name="verified">Verified</string>
+            ~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:136: Warning: The resource R.string.not_verified appears to be unused [UnusedResources]
+    <string name="not_verified">Not Verified</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:140: Warning: The resource R.string.no_data_found appears to be unused [UnusedResources]
+    <string name="no_data_found">No data found</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:141: Warning: The resource R.string.network_error appears to be unused [UnusedResources]
+    <string name="network_error">Network error. Please check your connection.</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:163: Warning: The resource R.string.add_vehicle appears to be unused [UnusedResources]
+    <string name="add_vehicle">Add Vehicle</string>
+            ~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:164: Warning: The resource R.string.edit_vehicle appears to be unused [UnusedResources]
+    <string name="edit_vehicle">Edit Vehicle</string>
+            ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:165: Warning: The resource R.string.delete_vehicle appears to be unused [UnusedResources]
+    <string name="delete_vehicle">Delete Vehicle</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:166: Warning: The resource R.string.vehicle_added appears to be unused [UnusedResources]
+    <string name="vehicle_added">Vehicle added successfully</string>
+            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:167: Warning: The resource R.string.vehicle_updated appears to be unused [UnusedResources]
+    <string name="vehicle_updated">Vehicle updated successfully</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:168: Warning: The resource R.string.vehicle_deleted appears to be unused [UnusedResources]
+    <string name="vehicle_deleted">Vehicle deleted</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\values\strings.xml:169: Warning: The resource R.string.no_vehicles appears to be unused [UnusedResources]
+    <string name="no_vehicles">No vehicles added yet</string>
+            ~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\activity_auth.xml:32: Warning: Missing contentDescription attribute on image [ContentDescription]
+        <ImageView
+         ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\activity_splash.xml:9: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageView
+     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:59: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:92: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:135: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:178: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_fleet.xml:43: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_fleet.xml:86: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_business_home.xml:77: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:132: Warning: Missing contentDescription attribute on image [ContentDescription]
+                        <ImageView
+                         ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:181: Warning: Missing contentDescription attribute on image [ContentDescription]
+                        <ImageView
+                         ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_fleet_home.xml:77: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_interests.xml:77: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_notifications.xml:72: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:83: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:117: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:150: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:60: Warning: Missing contentDescription attribute on image [ContentDescription]
+                        <ImageView
+                         ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:109: Warning: Missing contentDescription attribute on image [ContentDescription]
+                        <ImageView
+                         ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_cargos.xml:143: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_routes.xml:147: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:31: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:63: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:93: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:199: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:39: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:103: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:127: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:150: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_interest_card.xml:183: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:31: Warning: Missing contentDescription attribute on image [ContentDescription]
+                <ImageView
+                 ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:70: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:177: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:238: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\activity_auth.xml:24: Warning: Missing accessibility label: provide either a view with an android:labelFor that references this view or provide an android:hint [LabelFor]
+            <AutoCompleteTextView
+             ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:52: Warning: Missing accessibility label: provide either a view with an android:labelFor that references this view or provide an android:hint [LabelFor]
+                    <AutoCompleteTextView
+                     ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:208: Warning: Missing accessibility label: provide either a view with an android:labelFor that references this view or provide an android:hint [LabelFor]
+                    <AutoCompleteTextView
+                     ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_route.xml:125: Warning: Missing accessibility label: provide either a view with an android:labelFor that references this view or provide an android:hint [LabelFor]
+                    <AutoCompleteTextView
+                     ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:210: Warning: Missing accessibility label: provide either a view with an android:labelFor that references this view or provide an android:hint [LabelFor]
+                    <AutoCompleteTextView
+                     ~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "LabelFor":
+   Editable text fields should provide an android:hint or, provided your
+   minSdkVersion is at least 17, they may be referenced by a view with a
+   android:labelFor attribute.
+
+   When using android:labelFor, be sure to provide an android:text or an
+   android:contentDescription.
+
+   If your view is labeled but by a label in a different layout which includes
+   this one, just suppress this warning from lint.
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\CargoAdapter.kt:49: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                tvWeight.text = "${cargo.weightTons} tons"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\CargoAdapter.kt:49: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                tvWeight.text = "${cargo.weightTons} tons"
+                                                    ~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\CargoAdapter.kt:50: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                tvBudget.text = "₹${cargo.budgetAmount.toLong()}"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\fragments\CargoDetailFragment.kt:52: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvWeight.text = "${cargo.weightTons} ${getString(R.string.tons)}"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\fragments\CargoDetailFragment.kt:60: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvBudget.text = "₹${cargo.budgetAmount.toLong()}"
+                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\InterestAdapter.kt:125: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                tvContextLocation.text = "${cargo.pickupCity} → ${cargo.deliveryCity}"
+                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\InterestAdapter.kt:126: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                tvContextWeight.text = "${cargo.weightTons} tons"
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\InterestAdapter.kt:126: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                                tvContextWeight.text = "${cargo.weightTons} tons"
+                                                                           ~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\InterestAdapter.kt:137: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                tvContextLocation.text = "${route.fromCity} → ${route.toCity}"
+                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\InterestAdapter.kt:138: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                                tvContextWeight.text = "${route.availableCapacityTons} tons"
+                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\InterestAdapter.kt:138: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                                tvContextWeight.text = "${route.availableCapacityTons} tons"
+                                                                                      ~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\RouteAdapter.kt:56: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                tvCapacity.text = "${route.availableCapacityTons} tons"
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\RouteAdapter.kt:56: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                tvCapacity.text = "${route.availableCapacityTons} tons"
+                                                                 ~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\RouteAdapter.kt:57: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                tvPricePerTon.text = "₹${route.pricePerTon.toLong()}/ton"
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\RouteAdapter.kt:57: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                tvPricePerTon.text = "₹${route.pricePerTon.toLong()}/ton"
+                                                                    ~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\RouteAdapter.kt:104: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                                tvRating.text = "★ %.1f/5".format(rating)
+                                                 ~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\RouteAdapter.kt:109: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                            tvTripCount.text = "${fleetProfile.totalTrips} trips"
+                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\adapters\RouteAdapter.kt:109: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                            tvTripCount.text = "${fleetProfile.totalTrips} trips"
+                                                                          ~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\fragments\RouteDetailFragment.kt:56: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvCapacity.text = "${route.availableCapacityTons} ${getString(R.string.tons)}"
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\fragments\RouteDetailFragment.kt:57: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+                    tvPricePerTon.text = "₹${route.pricePerTon.toLong()}/ton"
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\java\com\freightconnect\ui\fragments\RouteDetailFragment.kt:57: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                    tvPricePerTon.text = "₹${route.pricePerTon.toLong()}/ton"
+                                                                        ~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:13: Warning: Hardcoded string "Your Shipment Overview", should use @string resource [HardcodedText]
+        android:text="Your Shipment Overview"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:44: Warning: Hardcoded string "Total Posted", should use @string resource [HardcodedText]
+                    android:text="Total Posted"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:53: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                    android:text="0"
+                    ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:102: Warning: Hardcoded string "Open", should use @string resource [HardcodedText]
+                    android:text="Open"
+                    ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:111: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                    android:text="0"
+                    ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:145: Warning: Hardcoded string "Pending", should use @string resource [HardcodedText]
+                    android:text="Pending"
+                    ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:154: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                    android:text="0"
+                    ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:188: Warning: Hardcoded string "Booked", should use @string resource [HardcodedText]
+                    android:text="Booked"
+                    ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_business.xml:197: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                    android:text="0"
+                    ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_fleet.xml:13: Warning: Hardcoded string "Your Fleet Overview", should use @string resource [HardcodedText]
+        android:text="Your Fleet Overview"
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_fleet.xml:53: Warning: Hardcoded string "Completed", should use @string resource [HardcodedText]
+                    android:text="Completed"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_fleet.xml:62: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                    android:text="0"
+                    ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_fleet.xml:96: Warning: Hardcoded string "Posted", should use @string resource [HardcodedText]
+                    android:text="Posted"
+                    ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\dashboard_fleet.xml:105: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                    android:text="0"
+                    ~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_business_home.xml:97: Warning: Hardcoded string "Tap + to post your first cargo request", should use @string resource [HardcodedText]
+                        android:text="Tap + to post your first cargo request"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:107: Warning: Hardcoded string "Description", should use @string resource [HardcodedText]
+                        android:text="Description"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:148: Warning: Hardcoded string "Pickup", should use @string resource [HardcodedText]
+                                android:text="Pickup"
+                                ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:197: Warning: Hardcoded string "Delivery", should use @string resource [HardcodedText]
+                                android:text="Delivery"
+                                ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:234: Warning: Hardcoded string "Required Vehicle", should use @string resource [HardcodedText]
+                                android:text="Required Vehicle"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_cargo_detail.xml:330: Warning: Hardcoded string "Business Owner", should use @string resource [HardcodedText]
+                        android:text="Business Owner"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_fleet_home.xml:97: Warning: Hardcoded string "Tap + to post your first route", should use @string resource [HardcodedText]
+                        android:text="Tap + to post your first route"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_interests.xml:88: Warning: Hardcoded string "No interests yet", should use @string resource [HardcodedText]
+                        android:text="No interests yet"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:40: Warning: Hardcoded string "Goods Details", should use @string resource [HardcodedText]
+                    android:text="Goods Details"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:97: Warning: Hardcoded string "Pickup Details", should use @string resource [HardcodedText]
+                    android:text="Pickup Details"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:155: Warning: Hardcoded string "Delivery Details", should use @string resource [HardcodedText]
+                    android:text="Delivery Details"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:196: Warning: Hardcoded string "Requirements & Budget", should use @string resource [HardcodedText]
+                    android:text="Requirements &amp; Budget"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_cargo.xml:205: Warning: Hardcoded string "Required Vehicle Type", should use @string resource [HardcodedText]
+                    android:hint="Required Vehicle Type"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_route.xml:40: Warning: Hardcoded string "Route Details", should use @string resource [HardcodedText]
+                    android:text="Route Details"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_route.xml:65: Warning: Hardcoded string "From Address", should use @string resource [HardcodedText]
+                    android:hint="From Address"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_route.xml:96: Warning: Hardcoded string "To Address", should use @string resource [HardcodedText]
+                    android:hint="To Address"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_route.xml:112: Warning: Hardcoded string "Vehicle Details", should use @string resource [HardcodedText]
+                    android:text="Vehicle Details"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_post_route.xml:170: Warning: Hardcoded string "Pricing & Schedule", should use @string resource [HardcodedText]
+                    android:text="Pricing &amp; Schedule"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:73: Warning: Hardcoded string "Personal Information", should use @string resource [HardcodedText]
+                    android:text="Personal Information"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:99: Warning: Hardcoded string "Email", should use @string resource [HardcodedText]
+                            android:text="Email"
+                            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:133: Warning: Hardcoded string "Phone", should use @string resource [HardcodedText]
+                            android:text="Phone"
+                            ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:166: Warning: Hardcoded string "Company", should use @string resource [HardcodedText]
+                            android:text="Company"
+                            ~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_profile.xml:199: Warning: Hardcoded string "Settings", should use @string resource [HardcodedText]
+                    android:text="Settings"
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:232: Warning: Hardcoded string "Price per Ton", should use @string resource [HardcodedText]
+                                android:text="Price per Ton"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:283: Warning: Hardcoded string "Partial Load", should use @string resource [HardcodedText]
+                                android:text="Partial Load"
+                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:306: Warning: Hardcoded string "Additional Notes", should use @string resource [HardcodedText]
+                        android:text="Additional Notes"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_route_detail.xml:337: Warning: Hardcoded string "Fleet Owner", should use @string resource [HardcodedText]
+                        android:text="Fleet Owner"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_cargos.xml:27: Warning: Hardcoded string "Search Cargo Requests", should use @string resource [HardcodedText]
+                android:text="Search Cargo Requests"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_cargos.xml:80: Warning: Hardcoded string "Clear", should use @string resource [HardcodedText]
+                    android:text="Clear"
+                    ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\fragment_search_routes.xml:82: Warning: Hardcoded string "Clear", should use @string resource [HardcodedText]
+                    android:text="Clear"
+                    ~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:133: Warning: Hardcoded string "Weight", should use @string resource [HardcodedText]
+                    android:text="Weight"
+                    ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:155: Warning: Hardcoded string "Budget", should use @string resource [HardcodedText]
+                    android:text="Budget"
+                    ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_cargo_card.xml:178: Warning: Hardcoded string "Pickup Date", should use @string resource [HardcodedText]
+                    android:text="Pickup Date"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_notification_card.xml:30: Warning: Hardcoded string "Notification type", should use @string resource [HardcodedText]
+                android:contentDescription="Notification type"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:110: Warning: Hardcoded string "Capacity", should use @string resource [HardcodedText]
+                    android:text="Capacity"
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:132: Warning: Hardcoded string "Price/Ton", should use @string resource [HardcodedText]
+                    android:text="Price/Ton"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_route_card.xml:155: Warning: Hardcoded string "Departure", should use @string resource [HardcodedText]
+                    android:text="Departure"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:34: Warning: Hardcoded string "MH-12-AB-1234", should use @string resource [HardcodedText]
+                    android:text="MH-12-AB-1234"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:42: Warning: Hardcoded string "Truck (5 Tons)", should use @string resource [HardcodedText]
+                    android:text="Truck (5 Tons)"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:54: Warning: Hardcoded string "Active", should use @string resource [HardcodedText]
+                android:text="Active"
+                ~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:78: Warning: Hardcoded string "Total Capacity", should use @string resource [HardcodedText]
+                    android:text="Total Capacity"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:86: Warning: Hardcoded string "5.0 Tons", should use @string resource [HardcodedText]
+                    android:text="5.0 Tons"
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:108: Warning: Hardcoded string "Available", should use @string resource [HardcodedText]
+                    android:text="Available"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:116: Warning: Hardcoded string "5.0 Tons", should use @string resource [HardcodedText]
+                    android:text="5.0 Tons"
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:139: Warning: Hardcoded string "Edit", should use @string resource [HardcodedText]
+                android:text="Edit" />
+                ~~~~~~~~~~~~~~~~~~~
+C:\Users\ahirr\AndroidStudioProjects\FreightApp\FreightConnect\app\src\main\res\layout\item_vehicle_card.xml:146: Warning: Hardcoded string "Delete", should use @string resource [HardcodedText]
+                android:text="Delete"
+                ~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+12 errors, 221 warnings

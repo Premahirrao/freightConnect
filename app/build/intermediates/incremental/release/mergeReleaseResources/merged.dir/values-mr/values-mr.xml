@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <plurals name="cargos_found">
+        <item quantity="one">%d माल सापडला</item>
+        <item quantity="other">%d माल सापडला</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+    <item quantity="one">%d नवीन सूचना</item>
+    <item quantity="other">%d नवीन सूचना</item>
+  </plurals>
+    <plurals name="routes_found">
+        <item quantity="one">%d मार्ग सापडला</item>
+        <item quantity="other">%d मार्ग सापडले</item>
+    </plurals>
+    <string msgid="5976598919945601918" name="abc_action_bar_home_description">"घराकडे नेव्हिगेट करा"</string>
+    <string msgid="8388173803310557296" name="abc_action_bar_up_description">"वर नेव्‍हिगेट करा"</string>
+    <string msgid="3937310113216875497" name="abc_action_menu_overflow_description">"आणखी पर्याय"</string>
+    <string msgid="4692188335987374352" name="abc_action_mode_done">"पूर्ण झाले"</string>
+    <string msgid="1189761859438369441" name="abc_activity_chooser_view_see_all">"सर्व पहा"</string>
+    <string msgid="2165779757652331008" name="abc_activitychooserview_choose_application">"अ‍ॅप निवडा"</string>
+    <string msgid="4215997306490295099" name="abc_capital_off">"बंद"</string>
+    <string msgid="884982626291842264" name="abc_capital_on">"सुरू"</string>
+    <string msgid="8833365367933412986" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="2223301931652355242" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="838001238306846836" name="abc_menu_delete_shortcut_label">"हटवा"</string>
+    <string msgid="7986526966204849475" name="abc_menu_enter_shortcut_label">"एंटर करा"</string>
+    <string msgid="375214403600139847" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="4192209724446364286" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="4741552369836443843" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="5473865519181928982" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="6180552449598693998" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="5520303668377388990" name="abc_prepend_shortcut_label">"मेनू+"</string>
+    <string msgid="7208076849092622260" name="abc_search_hint">"शोधा…"</string>
+    <string msgid="3741173234950517107" name="abc_searchview_description_clear">"क्‍वेरी साफ करा"</string>
+    <string msgid="693312494995508443" name="abc_searchview_description_query">"शोध क्वेरी"</string>
+    <string msgid="3417662926640357176" name="abc_searchview_description_search">"शोधा"</string>
+    <string msgid="1486535517437947103" name="abc_searchview_description_submit">"क्वेरी सबमिट करा"</string>
+    <string msgid="2293578557972875415" name="abc_searchview_description_voice">"व्हॉइस शोध"</string>
+    <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"यांच्यासोबत शेअर करा"</string>
+    <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> सह शेअर करा"</string>
+    <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"कोलॅप्स करा"</string>
+    <string name="accept">स्वीकारा</string>
+    <string name="accept_partial_load">आंशिक भार स्वीकारा</string>
+    <string name="active">सक्रिय</string>
+    <string name="add_vehicle">वाहन जोडा</string>
+    <string name="already_matched">✗ आधीच जुळलेले</string>
+    <string name="app_name">FreightConnect</string>
+    <string name="app_tagline">व्यवसाय आणि ट्रक मालकांना जोडा</string>
+    <string name="arrival">अंदाजे आगमन</string>
+    <string name="available">✓ उपलब्ध</string>
+    <string name="available_capacity">उपलब्ध क्षमता (टन)</string>
+    <string name="booked">बुक केलेले</string>
+    <string name="booked_weight">बुक केलेले वजन</string>
+    <string name="bottomsheet_action_collapse">तळाशी असलेली शीट कोलॅप्स करा</string>
+    <string name="bottomsheet_action_expand">तळाशी असलेल्या शीटचा विस्तार करा</string>
+    <string name="bottomsheet_action_expand_halfway">पूर्णपणे विस्तृत करा</string>
+    <string name="bottomsheet_drag_handle_content_description">ड्रॅग हॅंडल</string>
+    <string name="budget">बजेट रक्कम (₹)</string>
+    <string name="business_owner">व्यवसाय मालक</string>
+    <string name="call">कॉल करा</string>
+    <string msgid="881409763997275156" name="call_notification_answer_action">"उत्तर द्या"</string>
+    <string msgid="8793775615905189152" name="call_notification_answer_video_action">"व्हिडिओ"</string>
+    <string msgid="3229508546291798546" name="call_notification_decline_action">"नकार द्या"</string>
+    <string msgid="2659457946726154263" name="call_notification_hang_up_action">"कॉल बंद करा"</string>
+    <string msgid="6107532579223922871" name="call_notification_incoming_text">"इनकमिंग कॉल"</string>
+    <string msgid="8623827134497363134" name="call_notification_ongoing_text">"सुरू असलेला कॉल"</string>
+    <string msgid="59049573811482460" name="call_notification_screening_text">"इनकमिंग कॉल स्क्रीन करत आहे"</string>
+    <string name="cancel">रद्द करा</string>
+    <string name="cancel_cargo">कार्गो रद्द करा</string>
+    <string name="cancel_cargo_confirm_message">यामुळे कार्गो रद्द होईल आणि सर्व प्रलंबित रस नाकारले जातील.</string>
+    <string name="cancel_cargo_confirm_title">कार्गो रद्द करायचा का?</string>
+    <string name="cancel_not_allowed">रद्द करणे फक्त उघड्या किंवा प्रलंबित आयटमसाठीच अनुमती आहे.</string>
+    <string name="cancel_route">मार्ग रद्द करा</string>
+    <string name="cancel_route_confirm_message">यामुळे मार्ग रद्द होईल आणि सर्व प्रलंबित रस नाकारले जातील.</string>
+    <string name="cancel_route_confirm_title">मार्ग रद्द करायचा का?</string>
+    <string name="cancelled">रद्द</string>
+    <string name="capacity">क्षमता</string>
+    <string name="capacity_indicator">वापरलेली क्षमता</string>
+    <string name="cargo_cancelled">कार्गो रद्द केला</string>
+    <string name="cargo_details">माल तपशील</string>
+    <string name="change_language">भाषा बदला</string>
+    <string name="character_counter_content_description">%2$d पैकी %1$d वर्ण एंटर केले आहे</string>
+    <string name="character_counter_overflowed_content_description">%2$d पैकी %1$d वर्णमर्यादा ओलांडली आहे</string>
+    <string name="clear_text_end_icon_content_description">मजकूर साफ करा</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">सुरू करा</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">तुम्ही Google Play सेवा सक्षम केल्याशिवाय %1$s हा अ‍ॅप कार्य करणार नाही.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play सेवा सुरू करा</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">स्‍थापित करा</string>
+    <string name="common_google_play_services_install_text">Google Play सेवा आपल्या डिव्हाइसवर उपलब्ध नाही, त्याशिवाय %1$s चालणार नाही.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play सेवा मिळवा</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play सेवा उपलब्धता</string>
+    <string name="common_google_play_services_notification_ticker">Google Play सेवा एरर</string>
+    <string name="common_google_play_services_unknown_issue">%1$s ला Google Play सेवांमध्ये समस्या येत आहे. कृपया पुन्हा प्रयत्न करा.</string>
+    <string name="common_google_play_services_unsupported_text">तुमचे डिव्हाइस सपोर्ट करत नसलेल्या, Google Play सेवांशिवाय %1$s चालणार नाही.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">अपडेट करा</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">तुम्ही Google Play सेवा अपडेट करेपर्यंत %1$s चालणार नाही.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">Google Play सेवा अपडेट करा</string>
+    <string name="common_google_play_services_updating_text">सध्‍या अपडेट होत असलेल्‍या, Google Play सेवांशिवाय %1$s चालणार नाही.</string>
+    <string name="common_google_play_services_wear_update_text">Google Play सेवांच्या नवीन आवृत्तीची आवश्यकता आहे. हे स्वत:ला लवकरच अपडेट करेल.</string>
+    <string name="common_open_on_phone">फोनवर उघडा</string>
+    <string name="common_signin_button_text">साइन इन करा</string>
+    <string name="common_signin_button_text_long">Google सह साइन इन करा</string>
+    <string name="company_name">कंपनीचे नाव (पर्यायी)</string>
+    <string name="completed">पूर्ण</string>
+    <string name="contact_fleet">ट्रक मालकाशी संपर्क साधा</string>
+    <string name="contact_owner">मालकाशी संपर्क साधा</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"लिंक क्लिपबोर्डवर कॉपी केली"</string>
+    <string name="delete_vehicle">वाहन हटवा</string>
+    <string name="delivery_address">वितरण पत्ता</string>
+    <string name="delivery_city">वितरण शहर</string>
+    <string name="departure">प्रस्थान</string>
+    <string name="departure_date">निर्गमन तारीख</string>
+    <string name="direction_incoming">← प्राप्त</string>
+    <string name="direction_outgoing">→ पाठवले</string>
+    <string name="distance">अंतर: %1$.0f किमी</string>
+    <string name="edit_profile">प्रोफाइल संपादित करा</string>
+    <string name="edit_vehicle">वाहन संपादित करा</string>
+    <string name="email">ईमेल पत्ता</string>
+    <string name="enter_email_for_reset">कृपया प्रथम आपला ईमेल पत्ता प्रविष्ट करा</string>
+    <string name="error_a11y_label">एरर: चुकीचा</string>
+    <string name="error_empty_fields">कृपया सर्व आवश्यक फील्ड भरा</string>
+    <string name="error_icon_content_description">एरर</string>
+    <string name="error_loading">डेटा लोड करताना त्रुटी</string>
+    <string name="exposed_dropdown_menu_content_description">ड्रॉपडाउन मेनू दाखवा</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"लिंक कॉपी करा"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ब्राउझरमध्ये उघडा"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"लिंक शेअर करा"</string>
+    <string name="fleet_owner">ट्रक मालक</string>
+    <string name="forgot_password">पासवर्ड विसरलात?</string>
+    <string name="from">पासून</string>
+    <string name="from_city">शहरापासून</string>
+    <string name="full_name">पूर्ण नाव</string>
+    <string name="goods_description">वर्णन</string>
+    <string name="goods_type">मालाचा प्रकार</string>
+    <string name="goods_weight">मालाचे वजन</string>
+    <string name="home">मुख्यपृष्ठ</string>
+    <string name="i_am_a">मी आहे:</string>
+    <string name="icon_content_description">डायलॉग आयकन</string>
+    <string name="in_transit">वाहतुकीत</string>
+    <string name="interest_accepted">स्वारस्य स्वीकारले! संपर्क तपशील सामायिक केले.</string>
+    <string name="interest_rejected">स्वारस्य नाकारले</string>
+    <string name="interest_sent">स्वारस्य यशस्वीरित्या पाठवले!</string>
+    <string name="interests">स्वारस्ये</string>
+    <string name="item_view_role_description">टॅब</string>
+    <string name="login">लॉगिन</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="m3_loading_indicator_content_description">लोड करत आहे</string>
+    <string name="manage_vehicles">माझी वाहने</string>
+    <string name="material_clock_toggle_content_description">AM किंवा PM निवडा</string>
+    <string name="material_hour_24h_suffix">%1$s तास</string>
+    <string name="material_hour_selection">वेळ निवडा</string>
+    <string name="material_hour_suffix">%1$s वाजता</string>
+    <string name="material_minute_selection">मिनिटे निवडा</string>
+    <string name="material_minute_suffix">%1$s मिनिटे</string>
+    <string name="material_slider_range_end">रेंजचा शेवट</string>
+    <string name="material_slider_range_start">रेंजची सुरुवात</string>
+    <string name="material_slider_value">मूल्य</string>
+    <string name="material_timepicker_am">AM</string>
+    <string name="material_timepicker_clock_mode_description">वेळेच्या इनपुटसाठी घड्याळ मोडवर स्विच करा.</string>
+    <string name="material_timepicker_hour">तास</string>
+    <string name="material_timepicker_minute">मिनिट</string>
+    <string name="material_timepicker_pm">PM</string>
+    <string name="material_timepicker_select_time">वेळ निवडा</string>
+    <string name="material_timepicker_text_input_mode_description">वेळ इनपुटसाठी मजकूर इनपुट मोडवर स्विच करा.</string>
+    <string name="mtrl_badge_numberless_content_description">नवीन सूचना</string>
+    <string name="mtrl_checkbox_state_description_checked">निवडलेले</string>
+    <string name="mtrl_checkbox_state_description_indeterminate">अंशतः निवडलेले</string>
+    <string name="mtrl_checkbox_state_description_unchecked">निवडले नाही</string>
+    <string name="mtrl_chip_close_icon_content_description">काढून टाका %1$s</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">%1$d पेक्षा अधिक नवीन सूचना</string>
+    <string name="mtrl_picker_a11y_next_month">पुढील महिन्यावर बदला</string>
+    <string name="mtrl_picker_a11y_prev_month">मागील महिन्यावर बदला</string>
+    <string name="mtrl_picker_announce_current_range_selection">सुरू होण्याच्या तारखेची निवड: %1$s – संपण्याच्या तारखेची निवड: %2$s</string>
+    <string name="mtrl_picker_announce_current_selection">सध्याची निवड: %1$s</string>
+    <string name="mtrl_picker_announce_current_selection_none">काहीही नाही</string>
+    <string name="mtrl_picker_cancel">रद्द करा</string>
+    <string name="mtrl_picker_confirm">ओके</string>
+    <string name="mtrl_picker_date_header_selected">%1$s</string>
+    <string name="mtrl_picker_date_header_title">तारीख निवडा</string>
+    <string name="mtrl_picker_date_header_unselected">निवडलेली तारीख</string>
+    <string name="mtrl_picker_day_of_week_column_header">%1$s</string>
+    <string name="mtrl_picker_end_date_description">संपण्याची तारीख %1$s</string>
+    <string name="mtrl_picker_invalid_format">चुकीचा फॉरमॅट.</string>
+    <string name="mtrl_picker_invalid_format_example">उदाहरण: %1$s</string>
+    <string name="mtrl_picker_invalid_format_use">%1$s: वापरा</string>
+    <string name="mtrl_picker_invalid_range">चुकीची श्रेणी.</string>
+    <string name="mtrl_picker_navigate_to_current_year_description">सध्याचे वर्ष %1$d यावर नेव्हिगेट करा</string>
+    <string name="mtrl_picker_navigate_to_year_description">%1$d वर्षावर नेव्हिगेट करा</string>
+    <string name="mtrl_picker_out_of_range">रेंजच्या बाहेर: %1$s</string>
+    <string name="mtrl_picker_range_header_only_end_selected">सुरू होण्याची तारीख – %1$s</string>
+    <string name="mtrl_picker_range_header_only_start_selected">%1$s – संपण्याची तारीख</string>
+    <string name="mtrl_picker_range_header_selected">%1$s – %2$s</string>
+    <string name="mtrl_picker_range_header_title">रेंज निवडा</string>
+    <string name="mtrl_picker_range_header_unselected">सुरू होण्याची तारीख – संपण्याची तारीख</string>
+    <string name="mtrl_picker_save">सेव्ह करा</string>
+    <string name="mtrl_picker_start_date_description">सुरू होण्याची तारीख %1$s</string>
+    <string name="mtrl_picker_text_input_date_hint">तारीख</string>
+    <string name="mtrl_picker_text_input_date_range_end_hint">संपण्याची तारीख</string>
+    <string name="mtrl_picker_text_input_date_range_start_hint">सुरू होण्याची तारीख</string>
+    <string name="mtrl_picker_text_input_day_abbr">दि</string>
+    <string name="mtrl_picker_text_input_month_abbr">म</string>
+    <string name="mtrl_picker_text_input_year_abbr">व</string>
+    <string name="mtrl_picker_today_description">आज %1$s</string>
+    <string name="mtrl_picker_toggle_to_calendar_input_mode">कॅलेंडर इनपुट मोडवर स्विच करा</string>
+    <string name="mtrl_picker_toggle_to_day_selection">कॅलेंडर व्ह्यूवर स्विच करा</string>
+    <string name="mtrl_picker_toggle_to_text_input_mode">मजकूर इनपुट मोडवर स्विच करा</string>
+    <string name="mtrl_picker_toggle_to_year_selection">वर्ष व्ह्यूवर स्विच करा</string>
+    <string name="mtrl_picker_toggled_to_day_selection">Calendar दृश्यावर स्विच केले आहे</string>
+    <string name="mtrl_picker_toggled_to_year_selection">वर्षाच्या दृश्यावर स्विच केले आहे</string>
+    <string name="mtrl_timepicker_cancel">रद्द करा</string>
+    <string name="mtrl_timepicker_confirm">ओके</string>
+    <string name="my_cargo">माझा माल</string>
+    <string name="my_routes">माझे मार्ग</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"वर नेव्‍हिगेट करा"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"नेव्हिगेशन ड्रॉवर उघडा"</string>
+    <string name="network_error">नेटवर्क त्रुटी. कृपया तुमचे कनेक्शन तपासा.</string>
+    <string name="no_cargo_found">कोणताही माल सापडला नाही</string>
+    <string name="no_cargo_posted">अद्याप कोणताही माल पोस्ट केलेला नाही</string>
+    <string name="no_data_found">डेटा सापडला नाही</string>
+    <string name="no_notifications">अद्याप कोणत्याही सूचना नाहीत</string>
+    <string name="no_routes_found">कोणतेही मार्ग सापडले नाहीत</string>
+    <string name="no_routes_posted">अद्याप कोणतेही मार्ग पोस्ट केलेले नाहीत</string>
+    <string name="no_vehicles">अद्याप कोणतेही वाहन जोडलेले नाही</string>
+    <string name="not_verified">सत्यापित नाही</string>
+    <string name="notifications">सूचना</string>
+    <string name="offered_price">ऑफर केलेली किंमत (₹)</string>
+    <string name="open">उघडा</string>
+    <string name="partially_booked">अंशतः बुक केलेले</string>
+    <string name="password">पासवर्ड</string>
+    <string name="password_reset_sent">पासवर्ड रीसेट ईमेल पाठवला!</string>
+    <string name="password_toggle_content_description">पासवर्ड दाखवा</string>
+    <string name="pending">प्रलंबित</string>
+    <string name="phone_number">फोन नंबर</string>
+    <string name="pickup_address">पिकअप पत्ता</string>
+    <string name="pickup_city">पिकअप शहर</string>
+    <string name="pickup_date">पिकअप तारीख</string>
+    <string name="post_cargo">माल विनंती पोस्ट करा</string>
+    <string name="post_cargo_success">माल विनंती पोस्ट केली!</string>
+    <string name="post_route">मार्ग पोस्ट करा</string>
+    <string name="post_route_success">मार्ग यशस्वीरित्या पोस्ट केला!</string>
+    <string name="price_per_ton">प्रति टन किंमत (₹)</string>
+    <string name="profile">प्रोफाइल</string>
+    <string name="rating">रेटिंग</string>
+    <string name="rating_format">★ %1$.1f/5</string>
+    <string name="reason_already_matched">आधीच कोणाशी तरी जुळले आहे</string>
+    <string name="reason_not_suitable">माझ्या गरजांसाठी योग्य नाही</string>
+    <string name="reason_other">इतर कारण</string>
+    <string name="reason_pricing">किंमत स्वीकारार्ह नाही</string>
+    <string name="reason_will_contact">नंतर संपर्क करू</string>
+    <string name="register">नोंदणी करा</string>
+    <string name="reject">नकार द्या</string>
+    <string name="reject_interest_title">तुम्ही ही रुची का नाकारत आहात?</string>
+    <string name="rejection_reason_saved">रुची अभिप्रायासह नाकारली</string>
+    <string name="remaining_weight">उर्वरित वजन</string>
+    <string name="required_field">हे फील्ड आवश्यक आहे</string>
+    <string name="role_business_desc">मला माल वाहतूक करण्याची गरज आहे</string>
+    <string name="role_fleet_desc">माझ्याकडे वाहतुकीसाठी ट्रक उपलब्ध आहेत</string>
+    <string name="route_cancelled">मार्ग रद्द केला</string>
+    <string name="route_details">मार्ग तपशील</string>
+    <string name="route_notes">अतिरिक्त नोट्स</string>
+    <string name="search">शोधा</string>
+    <string msgid="6264217191555673260" name="search_menu_title">"शोध"</string>
+    <string name="searchview_clear_text_content_description">मजकूर साफ करा</string>
+    <string name="searchview_navigation_content_description">मागे जा</string>
+    <string name="select_language">भाषा निवडा</string>
+    <string name="send_interest">स्वारस्य पाठवा</string>
+    <string name="send_interest_title">स्वारस्य पाठवा</string>
+    <string name="side_sheet_accessibility_pane_title">साइड शीट</string>
+    <string name="special_requirements">विशेष आवश्यकता</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"९९९+"</string>
+    <string name="submit">सबमिट करा</string>
+    <string name="tab_received_interests">तुमच्यासाठी ऑफर्स</string>
+    <string name="tab_sent_interests">माझे ऑफर्स</string>
+    <string name="to">पर्यंत</string>
+    <string name="to_city">शहरापर्यंत</string>
+    <string name="tons">टन</string>
+    <string name="total_capacity">एकूण क्षमता</string>
+    <string name="total_trips">एकूण ट्रिप</string>
+    <string name="trips_format">%1$d प्रवास</string>
+    <string name="unread_interests">न वाचलेल्या रस दाखवणी</string>
+    <string name="vehicle_added">वाहन यशस्वीरित्या जोडले गेले</string>
+    <string name="vehicle_deleted">वाहन हटवले गेले</string>
+    <string name="vehicle_number">वाहन क्रमांक</string>
+    <string name="vehicle_type">वाहन प्रकार</string>
+    <string name="vehicle_updated">वाहन यशस्वीरित्या अपडेट केले गेले</string>
+    <string name="verified">सत्यापित</string>
+    <string name="verified_badge">✓ सत्यापित</string>
+    <string name="view_details">तपशील पहा</string>
+    <string name="weight_tons">वजन (टन)</string>
+    <string name="your_message">तुमचा संदेश</string>
+</resources>

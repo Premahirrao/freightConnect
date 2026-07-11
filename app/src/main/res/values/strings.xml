@@ -14,6 +14,20 @@
     <string name="company_name">Company Name (Optional)</string>
     <string name="select_language">Select Language</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_phone">Continue with Phone</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_verification_code">Enter verification code</string>
+    <string name="send_code">Send code</string>
+    <string name="verify">Verify</string>
+    <string name="google_login_failed">Google login failed</string>
+    <string name="phone_login_failed">Phone login failed</string>
+    <string name="invalid_google_token">Invalid Google token</string>
+    <string name="invalid_phone_number">Invalid phone number</string>
+    <string name="invalid_verification_code">Invalid verification code</string>
+    <string name="phone_code_sent">Verification code sent</string>
     <string name="i_am_a">I am a:</string>
     <string name="business_owner">Business Owner</string>
     <string name="fleet_owner">Fleet Owner</string>
@@ -68,6 +82,15 @@
     <string name="call">Call</string>
     <string name="send_interest">Send Interest</string>
     <string name="view_details">View Details</string>
+    <string name="cancel_route">Cancel Route</string>
+    <string name="cancel_cargo">Cancel Cargo</string>
+    <string name="cancel_route_confirm_title">Cancel route?</string>
+    <string name="cancel_route_confirm_message">This will cancel the route and reject all pending interests.</string>
+    <string name="cancel_cargo_confirm_title">Cancel cargo?</string>
+    <string name="cancel_cargo_confirm_message">This will cancel the cargo and reject all pending interests.</string>
+    <string name="route_cancelled">Route cancelled</string>
+    <string name="cargo_cancelled">Cargo cancelled</string>
+    <string name="cancel_not_allowed">Cancellation is only allowed for open or pending items.</string>
     <string name="active">Active</string>
     <string name="booked">Booked</string>
     <string name="completed">Completed</string>
@@ -147,6 +170,10 @@
     <string name="no_cargo_posted">No cargo posted yet</string>
     <string name="no_routes_found">No routes found</string>
     <string name="no_cargo_found">No cargo found</string>
+    <string name="select_cargo_title">Select cargo to attach</string>
+    <string name="no_open_cargo">You dont have any open or pending cargo to attach. Please create a cargo request first.</string>
+    <string name="ok">OK</string>
+    <string name="select">Select</string>
 
     <!-- Plurals -->
     <plurals name="routes_found">
@@ -158,6 +185,16 @@
         <item quantity="other">%d cargos found</item>
     </plurals>
 
+    <!-- Weight & Capacity Tracking -->
+    <string name="remaining_weight">Remaining Weight</string>
+    <string name="booked_weight">Booked Weight</string>
+    <string name="total_capacity">Total Capacity</string>
+    <string name="goods_weight">Goods Weight</string>
+    <string name="capacity_indicator">Capacity Used</string>
+
+    <!-- Status Messages -->
+    <string name="partially_booked">Partially Booked</string>
+
     <!-- Vehicles -->
     <string name="manage_vehicles">My Vehicles</string>
     <string name="add_vehicle">Add Vehicle</string>
@@ -168,4 +205,16 @@
     <string name="vehicle_deleted">Vehicle deleted</string>
     <string name="no_vehicles">No vehicles added yet</string>
 
+    <!-- Greeting and Help -->
+    <string name="greeting_format">Hi, %1$s</string>
+    <string name="greeting_fallback">Hi</string>
+    <string name="help">Help</string>
+    <string name="support_title">Support</string>
+    <string name="support_phone_label">Phone</string>
+    <string name="support_email_label">Email</string>
+    <string name="support_phone_value">+91 90000 12345</string>
+    <string name="support_email_value">support@freightconnect.app</string>
+    <string name="support_message">Phone: %1$s
+Email: %2$s</string>
+    <string name="status">Status</string>
 </resources>

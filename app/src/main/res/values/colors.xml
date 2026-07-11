@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Primary Colors -->
-    <color name="primary">#1565C0</color>
-    <color name="primary_dark">#0D47A1</color>
-    <color name="primary_light">#90CAF9</color>
-    <color name="secondary">#FF6D00</color>
-    <color name="secondary_dark">#E65100</color>
+    <!-- Enterprise Theme -->
+    <color name="primary">#001F3F</color>
+    <color name="primary_dark">#00142B</color>
+    <color name="primary_light">#E2E8F0</color>
+    <color name="secondary">#2E74D8</color>
+    <color name="secondary_dark">#1E5FB5</color>
 
     <!-- Background -->
     <color name="bg_auth">#F5F7FA</color>
-    <color name="bg_main">#F0F4F8</color>
+    <color name="bg_main">#F8FAFC</color>
     <color name="surface">#FFFFFF</color>
 
     <!-- Text -->
-    <color name="text_primary">#1A1A2E</color>
-    <color name="text_secondary">#6B7280</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#64748B</color>
 
     <!-- Status Colors -->
     <color name="status_active">#1976D2</color>
@@ -36,15 +36,15 @@
     <color name="error_red">#E53935</color>
 
     <!-- UI Elements -->
-    <color name="divider">#E5E7EB</color>
-    <color name="card_stroke">#E0E7FF</color>
-    <color name="chip_bg">#E3F2FD</color>
-    <color name="chip_text">#1565C0</color>
+    <color name="divider">#E2E8F0</color>
+    <color name="card_stroke">#E2E8F0</color>
+    <color name="chip_bg">#E2E8F0</color>
+    <color name="chip_text">#001F3F</color>
 
     <!-- Bottom Navigation Modern Colors -->
-    <color name="bottom_nav_active">#1565C0</color>
-    <color name="bottom_nav_inactive">#6B7280</color>
-    <color name="bottom_nav_indicator">#E3F2FD</color>
+    <color name="bottom_nav_active">#001F3F</color>
+    <color name="bottom_nav_inactive">#94A3B8</color>
+    <color name="bottom_nav_indicator">#E2E8F0</color>
 
     <!-- Notification Badge Colors -->
     <color name="color_interest">#FF6D00</color>
@@ -58,4 +58,26 @@
     <color name="text_tertiary">#9CA3AF</color>
     <color name="white">#FFFFFF</color>
 
+    <!-- Modern Auth Screen -->
+    <color name="auth_bg_deep">#071733</color>
+    <color name="auth_bg_mid">#172A43</color>
+    <color name="auth_primary_button">#061B46</color>
+    <color name="auth_primary_button_pressed">#0B275D</color>
+    <color name="auth_field_bg">#2EFFFFFF</color>
+    <color name="auth_field_stroke">#B8FFFFFF</color>
+    <color name="auth_field_stroke_focused">#FFFFFFFF</color>
+    <color name="auth_text">#FFFFFFFF</color>
+    <color name="auth_text_muted">#DDE6F3</color>
+
+    <!-- Fleet Connect Enterprise Redesign Tokens -->
+    <color name="enterprise_navy">#001F3F</color>
+    <color name="enterprise_navy_light">#1E3A5F</color>
+    <color name="enterprise_slate">#64748B</color>
+    <color name="enterprise_orange">#EA580C</color>
+    <color name="enterprise_background">#F8FAFC</color>
+    <color name="enterprise_card_border">#E2E8F0</color>
+    <color name="enterprise_text_muted">#94A3B8</color>
+    <color name="enterprise_nav_inactive">#94A3B8</color>
+    <color name="enterprise_danger">#DC2626</color>
+    <color name="enterprise_sparkline_navy">#1E3A8A</color>
 </resources>

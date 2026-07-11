@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Background color set to clean white surface -->
+    <solid android:color="@color/white" />
+
+    <!-- Thin-line 1dp border using the Enterprise Slate-200 equivalent -->
+    <stroke
+        android:width="1dp"
+        android:color="@color/enterprise_card_border" />
+
+    <!-- Professional 12dp corner radius as per spec -->
+    <corners android:radius="12dp" />
+</shape>

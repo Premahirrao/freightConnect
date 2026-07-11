@@ -46,10 +46,11 @@ enum class VehicleType(val displayNameEn: String, val maxCapacityTons: Float) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 enum class RouteStatus {
-    ACTIVE,      // Route available for booking
-    BOOKED,      // Someone booked it
-    IN_TRANSIT,  // Currently transporting
-    COMPLETED,   // Delivered
+    ACTIVE,           // Route available for booking (full capacity)
+    PARTIALLY_BOOKED, // Route has some bookings but capacity remains
+    BOOKED,           // Full capacity booked or no more space
+    IN_TRANSIT,       // Currently transporting
+    COMPLETED,        // Delivered
     CANCELLED
 }
 
@@ -87,6 +88,10 @@ data class TruckRoute(
     // Status
     val status: RouteStatus = RouteStatus.ACTIVE,
     val bookedByUid: String = "",
+    
+    // Weight tracking for real-time updates
+    val bookedWeightTons: Float = 0f,  // Total weight of accepted bookings
+    
     val createdAt: Long = System.currentTimeMillis(),
     
     // Additional info
@@ -96,7 +101,13 @@ data class TruckRoute(
 ) {
     @get:PropertyName("isAvailable")
     val isAvailable: Boolean
-        get() = status == RouteStatus.ACTIVE && availableCapacityTons > 0
+        get() = status in listOf(RouteStatus.ACTIVE, RouteStatus.PARTIALLY_BOOKED) && remainingCapacityTons > 0
+    
+    /**
+     * Calculate remaining capacity after booked weight
+     */
+    val remainingCapacityTons: Float
+        get() = (availableCapacityTons - bookedWeightTons).coerceAtLeast(0f)
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -201,6 +212,7 @@ data class BookingInterest(
     
     val message: String = "",
     val offeredPrice: Double = 0.0,
+    val goodsWeightTons: Float = 0f,  // Weight of goods in this interest
     val status: InterestStatus = InterestStatus.PENDING,
     val rejectionReason: String = "",  // Task 10: Reason for rejection
     val createdAt: Long = System.currentTimeMillis()

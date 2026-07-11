@@ -3,6 +3,7 @@ package com.freightconnect.ui.fragments
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,12 +11,15 @@ import com.freightconnect.R
 import com.freightconnect.databinding.FragmentFleetHomeBinding
 import com.freightconnect.ui.adapters.RouteAdapter
 import com.freightconnect.viewmodel.FleetHomeViewModel
+import com.freightconnect.viewmodel.MainViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class FleetHomeFragment : Fragment() {
 
     private var _binding: FragmentFleetHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel: FleetHomeViewModel by viewModels()
+    private val mainViewModel: MainViewModel by activityViewModels()
     private lateinit var routeAdapter: RouteAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -25,6 +29,7 @@ class FleetHomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupToolbar()
         setupRecyclerView()
         setupFab()
         observeData()
@@ -34,6 +39,39 @@ class FleetHomeFragment : Fragment() {
         super.onResume()
         // Refresh data when coming back from posting a route
         viewModel.refreshData()
+    }
+
+    private fun setupToolbar() {
+        mainViewModel.currentUser.observe(viewLifecycleOwner) { user ->
+            val name = user?.name?.trim().orEmpty()
+            val title = if (name.isNotEmpty()) {
+                getString(R.string.greeting_format, name)
+            } else {
+                getString(R.string.greeting_fallback)
+            }
+            binding.toolbar.title = title
+        }
+
+        binding.toolbar.setOnMenuItemClickListener { item ->
+            if (item.itemId == R.id.action_help) {
+                showHelpDialog()
+                true
+            } else {
+                false
+            }
+        }
+    }
+
+    private fun showHelpDialog() {
+        val phone = getString(R.string.support_phone_value)
+        val email = getString(R.string.support_email_value)
+        val message = getString(R.string.support_message, phone, email)
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.support_title)
+            .setMessage(message)
+            .setPositiveButton(R.string.ok, null)
+            .show()
     }
 
     private fun setupRecyclerView() {

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1006932126463",
+    "project_id": "mad-project-b7d7c",
+    "storage_bucket": "mad-project-b7d7c.firebasestorage.app"
+  },
+  "client": [
+
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006932126463:android:d3812851e375035b887aca",
+        "android_client_info": {
+          "package_name": "com.freightconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006932126463-75ukgfjt9jbtelqemid2ub3knc2pk062.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.freightconnect",
+            "certificate_hash": "cf27de3e054adaa67f753a82cf298287d90855c9"
+          }
+        },
+        {
+          "client_id": "1006932126463-uhpkumfc2sk91nu259a2idi20edgi5ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFgJ0mr6_tSzb17ZBWan_CkPmAOVd2ikc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006932126463-uhpkumfc2sk91nu259a2idi20edgi5ip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -17,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.roundToInt
 
 /**
  * RouteAdapter - Display list of truck routes
@@ -53,15 +54,16 @@ class RouteAdapter(
                 tvFromCity.text = route.fromCity
                 tvToCity.text = route.toCity
                 tvVehicleType.text = route.vehicleType.displayNameEn
-                tvCapacity.text = "${route.availableCapacityTons} tons"
+                tvCapacity.text = String.format(Locale.getDefault(), "%.1f tons", route.availableCapacityTons)
                 tvPricePerTon.text = "₹${route.pricePerTon.toLong()}/ton"
                 tvDepartureDate.text = SimpleDateFormat("dd MMM", Locale.getDefault())
                     .format(Date(route.departureDate))
                 tvFleetOwner.text = route.fleetOwnerName
 
-                // Status badge with color
+                // Status badge with color - Updated to include PARTIALLY_BOOKED
                 val (statusColor, statusText) = when (route.status) {
                     RouteStatus.ACTIVE -> Pair(R.color.status_active, "Active")
+                    RouteStatus.PARTIALLY_BOOKED -> Pair(R.color.status_in_transit, "Partially Booked")
                     RouteStatus.BOOKED -> Pair(R.color.status_booked, "Booked")
                     RouteStatus.IN_TRANSIT -> Pair(R.color.status_in_transit, "In Transit")
                     RouteStatus.COMPLETED -> Pair(R.color.status_completed, "Completed")
@@ -70,11 +72,25 @@ class RouteAdapter(
                 tvStatus.text = statusText
                 tvStatus.setBackgroundResource(statusColor)
 
+                // Display remaining capacity and progress
+                tvRemainingCapacity.text = String.format(Locale.getDefault(), "%.1f tons", route.remainingCapacityTons)
+                tvBookedWeight.text = String.format(Locale.getDefault(), "Booked: %.1fT", route.bookedWeightTons)
+                tvTotalCapacity.text = String.format(Locale.getDefault(), "Total: %.1fT", route.availableCapacityTons)
+
+                // Calculate progress percentage (0-100)
+                val progressPercent = if (route.availableCapacityTons > 0f) {
+                    ((route.bookedWeightTons / route.availableCapacityTons) * 100f).roundToInt()
+                        .coerceIn(0, 100)
+                } else {
+                    0
+                }
+                progressCapacity.setProgress(progressPercent, true)
+
                 // Task 9: Load trust indicators from fleet profile (rating, verification, trip count)
                 loadFleetOwnerTrust(route)
 
                 // Task 9: Add availability badge
-                val isAvailable = route.status == RouteStatus.ACTIVE
+                val isAvailable = route.status in listOf(RouteStatus.ACTIVE, RouteStatus.PARTIALLY_BOOKED)
                 val (availIcon, availText, availColor) = if (isAvailable) {
                     Triple(R.drawable.ic_check_circle, root.context.getString(R.string.available), R.color.color_success)
                 } else {

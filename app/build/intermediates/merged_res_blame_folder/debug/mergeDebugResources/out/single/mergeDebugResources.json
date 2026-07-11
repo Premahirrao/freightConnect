@@ -1,0 +1,422 @@
+[
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_search_cargos.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_search_cargos.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_item_route_card.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/item_route_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_person.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_person.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/drawable_bg_stst_box.xml.flat",
+        "source": "com.freightconnect.app-main-71:/drawable/bg_stst_box.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_auth_outline_button.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_auth_outline_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_cargo_detail.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_cargo_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_check_circle.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_check_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_post_route.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_post_route.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_money.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_money.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_activity_auth.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\activity_auth.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_home.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_auth_primary_button.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_auth_primary_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_close.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_close.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_language.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_language.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_search.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_route_detail.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_route_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_add.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_add.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_search_cargos.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_search_cargos.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_logout.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_logout.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_dashboard_business.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\dashboard_business.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/drawable_ic_sparkline_placeholder.xml.flat",
+        "source": "com.freightconnect.app-main-71:/drawable/ic_sparkline_placeholder.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_item_vehicle_card.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\item_vehicle_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_interests.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_interests.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_fleet_home.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_fleet_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\navigation_nav_graph_fleet.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\navigation\\nav_graph_fleet.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\navigation_nav_graph_business.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\navigation\\nav_graph_business.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_booked.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_booked.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_dashboard_fleet.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/dashboard_fleet.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_item_route_shimmer.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\item_route_shimmer.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_phone.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_phone.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_email.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_email.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-anydpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_error_message.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_error_message.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_item_interest_card.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\item_interest_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_item_cargo_shimmer.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\item_cargo_shimmer.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_arrow_forward.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_arrow_forward.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_route.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_route.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_business_home.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_business_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_auth_modern.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_auth_modern.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_truck.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_truck.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_item_notification_card.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/item_notification_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_badge_interest.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_badge_interest.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_open.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_open.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_search_routes.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_search_routes.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_dashboard_fleet.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\dashboard_fleet.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_auth_glass_field.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_auth_glass_field.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_item_vehicle_card.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/item_vehicle_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_box.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_box.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/drawable_bg_enteprise_card.xml.flat",
+        "source": "com.freightconnect.app-main-71:/drawable/bg_enteprise_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_search_routes.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_search_routes.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\menu_menu_home_toolbar.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\menu\\menu_home_toolbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_cargo_detail.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_cargo_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_badge_warning.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_badge_warning.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_item_notification_card.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\item_notification_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_item_cargo_card.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\item_cargo_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_business_home.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_business_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_business.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_business.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_badge_success.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_badge_success.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_item_cargo_card.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/item_cargo_card.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_item_interest_card.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/item_interest_card.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_profile.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_profile.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_interests.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_interests.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-anydpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_badge_error.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_badge_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_badge_bg.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\badge_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_location_pin.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_location_pin.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_pending.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_pending.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_dashboard_business.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/dashboard_business.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\menu_menu_bottom_business.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\menu\\menu_bottom_business.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_fleet_home.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_fleet_home.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_post_cargo.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_post_cargo.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_post_cargo.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_post_cargo.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_dialog_send_interest.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\dialog_send_interest.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_circle_unread.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\circle_unread.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_calendar.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_calendar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_lock.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_lock.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_notifications.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_item_route_card.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\item_route_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_notifications.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_fragment_post_route.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/fragment_post_route.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_bg_badge_info.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\bg_badge_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_notification.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_notification.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-debug-69:/layout_activity_main.xml.flat",
+        "source": "com.freightconnect.app-main-71:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_interests.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_interests.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_truck_logo.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_truck_logo.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\menu_menu_bottom_fleet.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\menu\\menu_bottom_fleet.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\drawable_ic_check.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\drawable\\ic_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-debug-69:\\layout_fragment_route_detail.xml.flat",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.11.1\\com.freightconnect.app-main-71:\\layout\\fragment_route_detail.xml"
+    }
+]

@@ -1,0 +1,118 @@
+[
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_cargo_detail.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_cargo_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_fleet_home.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_fleet_home.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-mergeReleaseResources-68:/layout/item_cargo_card.xml",
+        "source": "com.freightconnect.app-main-70:/layout/item_cargo_card.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-mergeReleaseResources-68:/layout/fragment_cargo_detail.xml",
+        "source": "com.freightconnect.app-main-70:/layout/fragment_cargo_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\activity_auth.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\activity_auth.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\item_interest_card.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\item_interest_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\item_notification_card.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\item_notification_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\item_cargo_card.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\item_cargo_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\dashboard_fleet.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\dashboard_fleet.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\item_route_card.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\item_route_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\dialog_send_interest.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\dialog_send_interest.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\item_cargo_shimmer.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\item_cargo_shimmer.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_interests.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_interests.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_search_routes.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_search_routes.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\activity_splash.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\dashboard_business.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\dashboard_business.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_business_home.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_business_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_post_cargo.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_post_cargo.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_post_route.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_post_route.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_route_detail.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_route_detail.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-mergeReleaseResources-68:/layout/fragment_route_detail.xml",
+        "source": "com.freightconnect.app-main-70:/layout/fragment_route_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_notifications.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-mergeReleaseResources-68:/layout/item_interest_card.xml",
+        "source": "com.freightconnect.app-main-70:/layout/item_interest_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\fragment_search_cargos.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\fragment_search_cargos.xml"
+    },
+    {
+        "merged": "com.freightconnect.app-mergeReleaseResources-68:/layout/item_route_card.xml",
+        "source": "com.freightconnect.app-main-70:/layout/item_route_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\item_vehicle_card.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\item_vehicle_card.xml"
+    },
+    {
+        "merged": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-mergeReleaseResources-68:\\layout\\item_route_shimmer.xml",
+        "source": "C:\\Users\\ahirr\\.gradle\\daemon\\8.10\\com.freightconnect.app-main-70:\\layout\\item_route_shimmer.xml"
+    }
+]

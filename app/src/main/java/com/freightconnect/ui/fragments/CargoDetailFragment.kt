@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.freightconnect.R
 import com.freightconnect.databinding.FragmentCargoDetailBinding
 import com.freightconnect.model.BookingInterest
+import com.freightconnect.model.CargoStatus
 import com.freightconnect.model.UserRole
 import com.freightconnect.repository.FreightRepository
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -67,9 +68,12 @@ class CargoDetailFragment : Fragment() {
                 // Show actions based on user role
                 when (currentUser?.role) {
                     UserRole.FLEET_OWNER -> {
-                        binding.btnSendInterest.visibility = View.VISIBLE
-                        binding.btnSendInterest.setOnClickListener {
-                            showSendInterestDialog(cargo.cargoId)
+                        val canSendInterest = cargo.status in listOf(CargoStatus.OPEN, CargoStatus.PENDING)
+                        binding.btnSendInterest.visibility = if (canSendInterest) View.VISIBLE else View.GONE
+                        if (canSendInterest) {
+                            binding.btnSendInterest.setOnClickListener {
+                                showSendInterestDialog(cargo.cargoId)
+                            }
                         }
                     }
                     UserRole.BUSINESS_OWNER -> {
@@ -77,6 +81,17 @@ class CargoDetailFragment : Fragment() {
                             binding.btnCall.visibility = View.VISIBLE
                             binding.btnCall.setOnClickListener {
                                 dialPhone(cargo.businessOwnerPhone)
+                            }
+                        } else {
+                            binding.btnCall.visibility = View.GONE
+                        }
+
+                        val canCancelCargo = cargo.businessOwnerUid == currentUser.uid &&
+                            cargo.status in listOf(CargoStatus.OPEN, CargoStatus.PENDING)
+                        binding.btnCancelCargo.visibility = if (canCancelCargo) View.VISIBLE else View.GONE
+                        if (canCancelCargo) {
+                            binding.btnCancelCargo.setOnClickListener {
+                                showCancelCargoDialog(cargo.cargoId)
                             }
                         }
                     }
@@ -124,11 +139,12 @@ class CargoDetailFragment : Fragment() {
                     targetRole = UserRole.BUSINESS_OWNER,
                     cargoId = cargoId,
                     message = message,
-                    offeredPrice = offeredPrice
+                    offeredPrice = offeredPrice,
+                    goodsWeightTons = cargo.weightTons
                 )
 
                 repo.sendInterest(interest)
-                showSnackbar(getString(R.string.interest_sent))
+                showSnackbar("${getString(R.string.interest_sent)} (Weight: ${cargo.weightTons}T)")
             } catch (e: Exception) {
                 showSnackbar(e.message ?: getString(R.string.error_loading))
             }
@@ -141,6 +157,39 @@ class CargoDetailFragment : Fragment() {
 
     private fun showSnackbar(msg: String) {
         Snackbar.make(binding.root, msg, Snackbar.LENGTH_LONG).show()
+    }
+
+    private fun showCancelCargoDialog(cargoId: String) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.cancel_cargo_confirm_title)
+            .setMessage(R.string.cancel_cargo_confirm_message)
+            .setPositiveButton(R.string.cancel_cargo) { _, _ ->
+                cancelCargo(cargoId)
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
+    }
+
+    private fun cancelCargo(cargoId: String) {
+        lifecycleScope.launch {
+            try {
+                val cargo = repo.getCargoRequest(cargoId)
+                if (cargo == null) {
+                    showSnackbar(getString(R.string.error_loading))
+                    return@launch
+                }
+                val canCancel = cargo.status in listOf(CargoStatus.OPEN, CargoStatus.PENDING)
+                if (!canCancel) {
+                    showSnackbar(getString(R.string.cancel_not_allowed))
+                    return@launch
+                }
+                repo.cancelCargo(cargoId)
+                showSnackbar(getString(R.string.cargo_cancelled))
+                loadCargoDetails()
+            } catch (e: Exception) {
+                showSnackbar(getString(R.string.error_loading))
+            }
+        }
     }
 
     override fun onDestroyView() {

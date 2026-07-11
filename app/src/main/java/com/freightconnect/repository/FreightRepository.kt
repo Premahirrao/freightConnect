@@ -86,6 +86,36 @@ class FreightRepository {
         }
     }
 
+    /**
+     * Listen to active routes matching optional from/to city filters in real-time.
+     * Returns a ListenerRegistration which should be removed by the caller when no longer needed.
+     */
+    fun listenToActiveRoutes(
+        fromCity: String = "",
+        toCity: String = "",
+        onUpdate: (List<TruckRoute>) -> Unit,
+        onError: (Exception) -> Unit = {}
+    ): ListenerRegistration {
+        var query: Query = truckRoutesRef.whereEqualTo("status", RouteStatus.ACTIVE.name)
+
+        if (fromCity.isNotBlank()) query = query.whereEqualTo("fromCity", fromCity)
+        if (toCity.isNotBlank()) query = query.whereEqualTo("toCity", toCity)
+
+        // Order by departure date for a stable list
+        query = query.orderBy("departureDate", Query.Direction.ASCENDING)
+
+        return query.addSnapshotListener { snapshot, error ->
+            if (error != null) {
+                onError(error)
+                return@addSnapshotListener
+            }
+            if (snapshot != null) {
+                val routes = snapshot.toObjects(TruckRoute::class.java)
+                onUpdate(routes)
+            }
+        }
+    }
+
     suspend fun getTruckRoute(routeId: String): TruckRoute? =
         truckRoutesRef.document(routeId).get().await()
             .toObject(TruckRoute::class.java)
@@ -95,7 +125,36 @@ class FreightRepository {
     }
 
     suspend fun cancelRoute(routeId: String) {
-        updateRouteStatus(routeId, RouteStatus.CANCELLED)
+        val route = truckRoutesRef.document(routeId).get().await()
+            .toObject(TruckRoute::class.java) ?: return
+        if (route.status !in listOf(RouteStatus.ACTIVE, RouteStatus.PARTIALLY_BOOKED)) return
+
+        val pendingDocs = interestsRef.whereEqualTo("routeId", routeId)
+            .whereEqualTo("status", InterestStatus.PENDING.name)
+            .get().await().documents
+        val pendingInterests = pendingDocs.mapNotNull { it.toObject(BookingInterest::class.java) }
+
+        db.runTransaction { transaction ->
+            transaction.update(
+                truckRoutesRef.document(routeId),
+                "status",
+                RouteStatus.CANCELLED.name
+            )
+            pendingDocs.forEach { doc ->
+                transaction.update(
+                    doc.reference,
+                    mapOf(
+                        "status" to InterestStatus.REJECTED.name,
+                        "rejectionReason" to "Cancelled by owner"
+                    )
+                )
+            }
+        }.await()
+
+        pendingInterests.forEach { interest ->
+            val initiator = getUser(interest.initiatorUid)
+            notifyInterestCancelled(interest, initiator, "route")
+        }
     }
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -152,7 +211,36 @@ class FreightRepository {
     }
 
     suspend fun cancelCargo(cargoId: String) {
-        updateCargoStatus(cargoId, CargoStatus.CANCELLED)
+        val cargo = cargoRequestsRef.document(cargoId).get().await()
+            .toObject(CargoRequest::class.java) ?: return
+        if (cargo.status !in listOf(CargoStatus.OPEN, CargoStatus.PENDING)) return
+
+        val pendingDocs = interestsRef.whereEqualTo("cargoId", cargoId)
+            .whereEqualTo("status", InterestStatus.PENDING.name)
+            .get().await().documents
+        val pendingInterests = pendingDocs.mapNotNull { it.toObject(BookingInterest::class.java) }
+
+        db.runTransaction { transaction ->
+            transaction.update(
+                cargoRequestsRef.document(cargoId),
+                "status",
+                CargoStatus.CANCELLED.name
+            )
+            pendingDocs.forEach { doc ->
+                transaction.update(
+                    doc.reference,
+                    mapOf(
+                        "status" to InterestStatus.REJECTED.name,
+                        "rejectionReason" to "Cancelled by owner"
+                    )
+                )
+            }
+        }.await()
+
+        pendingInterests.forEach { interest ->
+            val initiator = getUser(interest.initiatorUid)
+            notifyInterestCancelled(interest, initiator, "cargo")
+        }
     }
 
     // ═══════════════════════════════════════════════════════════════════════
@@ -160,6 +248,23 @@ class FreightRepository {
     // ═══════════════════════════════════════════════════════════════════════
 
     suspend fun sendInterest(interest: BookingInterest): String {
+        if (interest.routeId.isNotBlank()) {
+            val route = getTruckRoute(interest.routeId)
+            val routeIsBookable = route != null &&
+                route.status in listOf(RouteStatus.ACTIVE, RouteStatus.PARTIALLY_BOOKED) &&
+                route.remainingCapacityTons > 0f
+            if (!routeIsBookable) {
+                throw IllegalStateException("Route is not available for new interests")
+            }
+        }
+        if (interest.cargoId.isNotBlank()) {
+            val cargo = getCargoRequest(interest.cargoId)
+            val cargoIsBookable = cargo != null &&
+                cargo.status in listOf(CargoStatus.OPEN, CargoStatus.PENDING)
+            if (!cargoIsBookable) {
+                throw IllegalStateException("Cargo is not available for new interests")
+            }
+        }
         val ref = interestsRef.document()
         val withId = interest.copy(interestId = ref.id)
         ref.set(withId).await()
@@ -167,9 +272,6 @@ class FreightRepository {
         // Update cargo/route status
         if (interest.cargoId.isNotBlank()) {
             updateCargoStatus(interest.cargoId, CargoStatus.PENDING)
-        }
-        if (interest.routeId.isNotBlank()) {
-            updateRouteStatus(interest.routeId, RouteStatus.BOOKED)
         }
         
         return ref.id
@@ -243,7 +345,35 @@ suspend fun acceptInterest(interestId: String) {
         .await()
         .toObject(BookingInterest::class.java) ?: return
 
-    // ✅ STEP 1: Fetch pending interests BEFORE transaction
+    if (interest.status != InterestStatus.PENDING) {
+        throw IllegalStateException("Interest already processed")
+    }
+    if (interest.routeId.isBlank() && interest.cargoId.isBlank()) {
+        throw IllegalStateException("Interest has no route or cargo")
+    }
+
+    suspend fun reject(reason: String): Nothing {
+        interestsRef.document(interestId)
+            .update(
+                mapOf(
+                    "status" to InterestStatus.REJECTED.name,
+                    "rejectionReason" to reason
+                )
+            ).await()
+        throw IllegalStateException(reason)
+    }
+
+    // Fetch cargo/route and pending interests before transaction
+    val cargo = if (interest.cargoId.isNotBlank()) {
+        cargoRequestsRef.document(interest.cargoId).get().await()
+            .toObject(CargoRequest::class.java)
+    } else null
+
+    val route = if (interest.routeId.isNotBlank()) {
+        truckRoutesRef.document(interest.routeId).get().await()
+            .toObject(TruckRoute::class.java)
+    } else null
+
     val query = if (interest.cargoId.isNotBlank()) {
         interestsRef.whereEqualTo("cargoId", interest.cargoId)
     } else {
@@ -256,17 +386,56 @@ suspend fun acceptInterest(interestId: String) {
         .await()
         .documents
 
-    // ✅ STEP 2: Run transaction (NO await inside)
+    val requestedWeight = when {
+        interest.goodsWeightTons > 0f -> interest.goodsWeightTons
+        cargo != null -> cargo.weightTons
+        route != null -> route.remainingCapacityTons
+        else -> 0f
+    }
+
+    if (interest.routeId.isNotBlank() && route != null) {
+        if (requestedWeight <= 0f) {
+            reject("Missing goods weight")
+        }
+        if (route.remainingCapacityTons <= 0f) {
+            reject("Route is fully booked")
+        }
+        if (requestedWeight > route.remainingCapacityTons) {
+            reject("Not enough remaining capacity")
+        }
+    }
+
+    if (interest.cargoId.isNotBlank() && cargo != null) {
+        if (cargo.status == CargoStatus.BOOKED || cargo.status == CargoStatus.CANCELLED) {
+            reject("Cargo is no longer available")
+        }
+    }
+
+    val newBookedWeight = if (route != null) route.bookedWeightTons + requestedWeight else 0f
+    val totalCapacity = route?.availableCapacityTons ?: 0f
+    val remainingCapacity = if (route != null) {
+        (totalCapacity - newBookedWeight).coerceAtLeast(0f)
+    } else {
+        0f
+    }
+    val newRouteStatus = if (route != null) {
+        when {
+            remainingCapacity <= 0f -> RouteStatus.BOOKED
+            remainingCapacity < totalCapacity -> RouteStatus.PARTIALLY_BOOKED
+            else -> RouteStatus.ACTIVE
+        }
+    } else {
+        null
+    }
+
     db.runTransaction { transaction ->
 
-        // Accept selected
         transaction.update(
             interestsRef.document(interestId),
             "status", InterestStatus.ACCEPTED.name
         )
 
-        // Update cargo
-        if (interest.cargoId.isNotBlank()) {
+        if (interest.cargoId.isNotBlank() && cargo != null) {
             transaction.update(
                 cargoRequestsRef.document(interest.cargoId),
                 mapOf(
@@ -277,33 +446,45 @@ suspend fun acceptInterest(interestId: String) {
             )
         }
 
-        // Update route
-        if (interest.routeId.isNotBlank()) {
+        if (interest.routeId.isNotBlank() && route != null && newRouteStatus != null) {
             transaction.update(
                 truckRoutesRef.document(interest.routeId),
                 mapOf(
-                    "status" to RouteStatus.BOOKED.name,
+                    "bookedWeightTons" to newBookedWeight,
+                    "status" to newRouteStatus.name,
                     "bookedByUid" to interest.initiatorUid
                 )
             )
         }
 
-        // Reject others
-        pendingDocs.forEach { doc ->
-            if (doc.id != interestId) {
-                transaction.update(
-                    doc.reference,
-                    "status",
-                    InterestStatus.REJECTED.name
-                )
+        if (interest.cargoId.isNotBlank()) {
+            pendingDocs.forEach { doc ->
+                if (doc.id != interestId) {
+                    transaction.update(
+                        doc.reference,
+                        "status",
+                        InterestStatus.REJECTED.name
+                    )
+                }
+            }
+        }
+
+        if (interest.routeId.isNotBlank() && newRouteStatus == RouteStatus.BOOKED) {
+            pendingDocs.forEach { doc ->
+                if (doc.id != interestId) {
+                    transaction.update(
+                        doc.reference,
+                        "status",
+                        InterestStatus.REJECTED.name
+                    )
+                }
             }
         }
     }.await()
-    
-    // Task 12: Send notification to initiator that interest was accepted
+
     val initiator = getUser(interest.initiatorUid)
     notifyInterestAccepted(interest, initiator)
-    }
+}
 
     suspend fun rejectInterest(interestId: String, reason: String = "") {
         // Task 10: Save rejection reason along with status
@@ -567,6 +748,26 @@ suspend fun acceptInterest(interestId: String) {
                 title = "Interest declined",
                 body = "${interest.targetName} declined your interest${if (interest.rejectionReason.isNotBlank()) ": ${interest.rejectionReason}" else ""}",
                 relatedInterestId = interest.interestId
+            )
+        }
+    }
+
+    private suspend fun notifyInterestCancelled(
+        interest: BookingInterest,
+        initiatorUser: User?,
+        itemType: String
+    ) {
+        if (initiatorUser?.fcmToken?.isNotBlank() == true) {
+            val title = if (itemType == "route") "Route cancelled" else "Cargo cancelled"
+            val body = "The ${itemType} you were interested in was cancelled by the owner."
+            sendNotification(
+                recipientUid = interest.initiatorUid,
+                type = NotificationType.CANCELLED,
+                title = title,
+                body = body,
+                relatedInterestId = interest.interestId,
+                relatedCargoId = interest.cargoId,
+                relatedRouteId = interest.routeId
             )
         }
     }

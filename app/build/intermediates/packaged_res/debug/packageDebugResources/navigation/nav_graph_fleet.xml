@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_fleet"
+    app:startDestination="@id/fleetHomeFragment">
+
+    <fragment
+        android:id="@+id/fleetHomeFragment"
+        android:name="com.freightconnect.ui.fragments.FleetHomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_fleet_home">
+
+        <action
+            android:id="@+id/action_home_to_routeDetail"
+            app:destination="@id/routeDetailFragment" />
+
+        <action
+            android:id="@+id/action_home_to_postRoute"
+            app:destination="@id/postRouteFragment" />
+
+        <action
+            android:id="@+id/action_home_to_searchCargos"
+            app:destination="@id/searchCargosFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchCargosFragment"
+        android:name="com.freightconnect.ui.fragments.SearchCargosFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_search_cargos">
+
+        <action
+            android:id="@+id/action_search_to_cargoDetail"
+            app:destination="@id/cargoDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/routeDetailFragment"
+        android:name="com.freightconnect.ui.fragments.RouteDetailFragment"
+        android:label="@string/route_details"
+        tools:layout="@layout/fragment_route_detail">
+
+        <argument
+            android:name="routeId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cargoDetailFragment"
+        android:name="com.freightconnect.ui.fragments.CargoDetailFragment"
+        android:label="@string/cargo_details"
+        tools:layout="@layout/fragment_cargo_detail">
+
+        <argument
+            android:name="cargoId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postRouteFragment"
+        android:name="com.freightconnect.ui.fragments.PostRouteFragment"
+        android:label="@string/post_route"
+        tools:layout="@layout/fragment_post_route" />
+
+    <fragment
+        android:id="@+id/interestsFragment"
+        android:name="com.freightconnect.ui.fragments.InterestsFragment"
+        android:label="@string/interests"
+        tools:layout="@layout/fragment_interests" />
+
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.freightconnect.ui.fragments.NotificationsFragment"
+        android:label="@string/notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.freightconnect.ui.fragments.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

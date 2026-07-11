@@ -67,6 +67,17 @@ class MainViewModel : ViewModel() {
         auth.signOut()
         _currentUser.value = null
     }
+
+    fun updateUserLanguage(languageCode: String) {
+        val uid = auth.currentUser?.uid ?: return
+        viewModelScope.launch {
+            try {
+                repo.updateUserLanguage(uid, languageCode)
+            } catch (_: Exception) {
+                // No-op to avoid blocking UI on failure
+            }
+        }
+    }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -314,9 +325,41 @@ class SearchRoutesViewModel : ViewModel() {
         }
     }
 
+    // Real-time listener registration for search results
+    private var routesListener: ListenerRegistration? = null
+
+    /**
+     * Start listening to active routes matching filters in real-time.
+     * Caller should call stopListening() when appropriate.
+     */
+    fun startListening(fromCity: String = "", toCity: String = "") {
+        _isLoading.value = true
+        // Remove previous listener
+        routesListener?.remove()
+        routesListener = repo.listenToActiveRoutes(fromCity, toCity,
+            onUpdate = { routes ->
+                _routes.postValue(routes)
+                _isLoading.postValue(false)
+            },
+            onError = {
+                _isLoading.postValue(false)
+            }
+        )
+    }
+
+    fun stopListening() {
+        routesListener?.remove()
+        routesListener = null
+    }
+
 
     init {
         searchRoutes()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        routesListener?.remove()
     }
 }
 

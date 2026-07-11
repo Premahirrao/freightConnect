@@ -63,6 +63,7 @@ class ProfileFragment : Fragment() {
         binding.actvLanguage.setOnItemClickListener { _, _, position, _ ->
             val selectedLang = AppLanguage.values()[position].code
             LanguageHelper.setLocale(requireContext(), selectedLang)
+            viewModel.updateUserLanguage(selectedLang)
             
             // Restart activity to apply language
             MaterialAlertDialogBuilder(requireContext())

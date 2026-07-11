@@ -8,7 +8,10 @@ import com.freightconnect.model.FleetOwnerProfile
 import com.freightconnect.model.User
 import com.freightconnect.model.UserRole
 import com.freightconnect.repository.FreightRepository
+import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
@@ -95,6 +98,70 @@ class AuthViewModel : ViewModel() {
             } catch (e: Exception) {
                 _authState.value = AuthState.Error(e.message ?: "Reset failed")
             }
+        }
+    }
+
+    fun signInWithGoogle(idToken: String, defaultRole: UserRole, language: String) {
+        _authState.value = AuthState.Loading
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        signInWithCredential(credential, defaultRole, language)
+    }
+
+    fun signInWithPhone(credential: AuthCredential, defaultRole: UserRole, language: String) {
+        _authState.value = AuthState.Loading
+        signInWithCredential(credential, defaultRole, language)
+    }
+
+    private fun signInWithCredential(
+        credential: AuthCredential,
+        defaultRole: UserRole,
+        language: String
+    ) {
+        viewModelScope.launch {
+            try {
+                val result = auth.signInWithCredential(credential).await()
+                val firebaseUser = result.user ?: throw Exception("User is null")
+                ensureUserRecord(firebaseUser, defaultRole, language)
+                _authState.value = AuthState.Success
+            } catch (e: Exception) {
+                _authState.value = AuthState.Error(e.message ?: "Authentication failed")
+            }
+        }
+    }
+
+    private suspend fun ensureUserRecord(
+        firebaseUser: FirebaseUser,
+        defaultRole: UserRole,
+        language: String
+    ) {
+        val uid = firebaseUser.uid
+        val existing = repo.getUser(uid)
+        if (existing != null) return
+
+        val name = firebaseUser.displayName?.trim().orEmpty()
+            .ifEmpty { firebaseUser.phoneNumber?.trim().orEmpty() }
+            .ifEmpty { "User" }
+
+        val user = User(
+            uid = uid,
+            name = name,
+            phone = firebaseUser.phoneNumber.orEmpty(),
+            email = firebaseUser.email.orEmpty(),
+            role = defaultRole,
+            companyName = "",
+            preferredLanguage = language
+        )
+
+        repo.createUser(user)
+
+        if (defaultRole == UserRole.FLEET_OWNER) {
+            val profile = FleetOwnerProfile(
+                uid = uid,
+                name = name,
+                phone = firebaseUser.phoneNumber.orEmpty(),
+                companyName = ""
+            )
+            repo.createOrUpdateFleetProfile(profile)
         }
     }
 }

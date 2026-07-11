@@ -14,6 +14,18 @@
     <string name="company_name">కంపెనీ పేరు (ఐచ్ఛికం)</string>
     <string name="select_language">భాషను ఎంచుకోండి</string>
     <string name="forgot_password">పాస్‌వర్డ్ మర్చిపోయారా?</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_phone">Continue with Phone</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_verification_code">Enter verification code</string>
+    <string name="send_code">Send code</string>
+    <string name="verify">Verify</string>
+    <string name="google_login_failed">Google login failed</string>
+    <string name="phone_login_failed">Phone login failed</string>
+    <string name="invalid_google_token">Invalid Google token</string>
+    <string name="invalid_phone_number">Invalid phone number</string>
+    <string name="invalid_verification_code">Invalid verification code</string>
+    <string name="phone_code_sent">Verification code sent</string>
     <string name="i_am_a">నేను:</string>
     <string name="business_owner">వ్యాపార యజమాని</string>
     <string name="fleet_owner">ట్రక్ యజమాని</string>
@@ -147,6 +159,46 @@
     <string name="reason_other">ఇతర కారణం</string>
     <string name="reject_interest_title">మీరు ఈ ఆసక్తిని ఎందుకు తిరస్కరిస్తున్నారు?</string>
     <string name="rejection_reason_saved">ఆసక్తి అభిప్రాయంతో తిరస్కరించబడింది</string>
+
+    <string name="cancel_route">మార్గాన్ని రద్దు చేయండి</string>
+    <string name="cancel_cargo">కార్గోను రద్దు చేయండి</string>
+    <string name="cancel_route_confirm_title">మార్గాన్ని రద్దు చేయాలా?</string>
+    <string name="cancel_route_confirm_message">ఇది మార్గాన్ని రద్దు చేసి అన్ని పెండింగ్ ఆసక్తులను తిరస్కరిస్తుంది.</string>
+    <string name="cancel_cargo_confirm_title">కార్గోను రద్దు చేయాలా?</string>
+    <string name="cancel_cargo_confirm_message">ఇది కార్గోను రద్దు చేసి అన్ని పెండింగ్ ఆసక్తులను తిరస్కరిస్తుంది.</string>
+    <string name="route_cancelled">మార్గం రద్దు చేయబడింది</string>
+    <string name="cargo_cancelled">కార్గో రద్దు చేయబడింది</string>
+    <string name="cancel_not_allowed">రద్దు చేయడం ఓపెన్ లేదా పెండింగ్ అంశాలకు మాత్రమే అనుమతించబడుతుంది.</string>
+
+
+    <string name="remaining_weight">మిగిలిన బరువు</string>
+    <string name="booked_weight">బుక్ చేసిన బరువు</string>
+    <string name="total_capacity">మొత్తం సామర్థ్యం</string>
+    <string name="goods_weight">సరుకు బరువు</string>
+    <string name="capacity_indicator">ఉపయోగించిన సామర్థ్యం</string>
+
+    <string name="partially_booked">పాక్షికంగా బుక్ చేయబడింది</string>
+
+    <string name="select_cargo_title">అటాచ్ చేయడానికి కార్గోను ఎంచుకోండి</string>
+    <string name="no_open_cargo">మీ వద్ద అటాచ్ చేయడానికి ఓపెన్ లేదా పెండింగ్ కార్గో లేదు. దయచేసి ముందుగా కార్గో అభ్యర్థన సృష్టించండి.</string>
+    <string name="ok">సరే</string>
+
+    <string name="greeting_format">नमस्ते, %1$s</string>
+    <string name="greeting_fallback">नमस्ते</string>
+    <string name="help">सहायता</string>
+    <string name="support_title">सहायता</string>
+    <string name="support_phone_label">फोन</string>
+    <string name="support_email_label">ईमेल</string>
+    <string name="support_phone_value">+91 90000 12345</string>
+    <string name="support_email_value">support@freightconnect.app</string>
+    <string name="support_message">ఫోన్: %1$s\nఇమెయిల్: %2$s</string>
+
+
+    <string name="dont_have_account">మీకు ఖాతా లేదా?</string>
+    <string name="already_have_account">మీకు ఇప్పటికే ఖాతా ఉందా?</string>
+    <string name="status">స్థితి</string>
+
+    <string name="select">ఎంచుకోండి</string>
 
     <!-- Plurals -->
     <plurals name="routes_found">
